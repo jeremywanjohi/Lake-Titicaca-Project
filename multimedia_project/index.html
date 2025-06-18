@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Floating Communities of Lake Titicaca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0d5387;
+      --accent1: #fe6d73;  /* coral */
+      --accent2: #ffb703;  /* golden */
+      --accent3: #8ecae6;  /* sky */
+      --light: #f5f9fc;
+      --card-bg: #ffffff;
+      --shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #ffffff 30%, #eaf4ff 100%);
+      color: #333;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ---------- NAV & HERO ---------- */
+    header {
+      position: relative;
+      background: url('https://www.jacadatravel.com/_next/image/?url=https%3A%2F%2Fcdn.jacadatravel.com%2Fwp-content%2Fuploads%2Fbis-images%2F210833%2Ftiticaca_uros_islands-1600x900-f50_50.jpg&w=3840&q=100') center/cover no-repeat;
+      min-height: 72vh;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.48);
+    }
+    nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    nav a.logo {
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.6px;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: opacity 0.25s ease;
+    }
+    nav ul li a:hover { opacity: 0.8; }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 3.2rem 1rem 5rem;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+    .hero p {
+      margin-top: 0.65rem;
+      font-size: 1.15rem;
+      opacity: 0.95;
+    }
+
+    /* ---------- MAIN LAYOUT ---------- */
+    main {
+      max-width: 1150px;
+      margin: -4.5rem auto 4rem;
+      padding: 0 1.5rem;
+    }
+    section {
+      padding: 4.5rem 0;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 1.8rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* Alternate background hues for breathing space */
+    section:nth-of-type(odd) {
+      background: #fcfeff;
+    }
+    section:nth-of-type(even) {
+      background: #eef9ff;
+    }
+
+    /* ---------- FEATURE CARD GRID ---------- */
+    .feature {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.8rem;
+      align-items: center;
+      background: var(--card-bg);
+      border-radius: 0.85rem;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .feature:nth-child(even) { flex-direction: row-reverse; }
+
+    /* accent strip */
+    .feature::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background: var(--accent1);
+    }
+    /* use different accent colors for each section */
+    #customs .feature::before { background: var(--accent2); }
+    #economy .feature::before { background: var(--accent3); }
+    #governance .feature::before { background: var(--primary); }
+
+    .feature-img {
+      flex: 1 1 300px;
+      min-height: 240px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 0.7rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+    .feature-content {
+      flex: 1 1 350px;
+    }
+    .feature-content h3 {
+      color: var(--primary);
+      font-size: 1.65rem;
+      margin-bottom: 1rem;
+    }
+    .feature-content p {
+      text-align: justify;
+      margin-bottom: 0.8rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem 0;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- MEDIA QUERIES ---------- */
+    @media (max-width: 880px) {
+      .feature { padding: 2rem; }
+      .feature-content h3 { font-size: 1.5rem; }
+    }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2.45rem; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" class="logo"></a>
+      <ul>
+        <li><a href="#social">Social</a></li>
+        <li><a href="#customs">Customs</a></li>
+        <li><a href="#economy">Economy</a></li>
+        <li><a href="#governance">Governance</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1>Floating Communities of Lake Titicaca</h1>
+      <p>Immersive insights into the daily life and resilience of the Uros people</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- SOCIAL STRUCTURE -->
+    <section id="social">
+      <h2 class="section-title">Community & Family Structure</h2>
+      <div class="feature">
+        <div class="feature-img" style="background-image:url('https://www.annees-de-pelerinage.com/wp-content/uploads/2015/08/uros-people-singing-farewell-song-lake-titicaca-1024x680.jpg');"></div>
+        <div class="feature-content">
+          <h3>Shared Stewardship on the Reeds</h3>
+          <p>The reed‑built islands function as tight‑knit micro‑communities. <strong>Each household unit</strong> generally includes extended family, with elder members guiding decisions on island upkeep and resource sharing. Leadership rotates among respected elders, ensuring <em>collective stewardship</em> over limited space and supplies.</p>
+          <p>Children learn through apprenticeship—helping repair reed layers, tending fishing nets, and caring for younger siblings—fostering early responsibility and cooperation from a young age.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOMS & RITUALS -->
+    <section id="customs">
+      <h2 class="section-title">Customs, Celebrations & Storytelling</h2>
+      <div class="feature">
+        <div class="feature-img" style="background-image:url('https://images.squarespace-cdn.com/content/v1/55ca0e9fe4b0e3531a269135/1586401564803-CFW21O7MPX3N33S8YNE1/Women+dancing+in+a+circle%2C+Lake+Titicaca?format=1500w');"></div>
+        <div class="feature-content">
+          <h3>Lanterns & Pan‑Flutes</h3>
+          <p>Festivals center on the rhythmic <strong>dance of totora reeds</strong>, symbolizing life’s cyclical nature. During the annual “Fiesta de la Luz,” residents illuminate their islands with lanterns woven from reeds, accompanied by pan‑flute melodies retelling ancestral migration across the lake.</p>
+          <p>Oral storytelling—the <em>living library</em> of Uros history—blends myth and memory, preserving social values while strengthening bonds between generations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ECONOMIC ACTIVITIES -->
+    <section id="economy">
+      <h2 class="section-title">Livelihoods on Water</h2>
+      <div class="feature">
+        <div class="feature-img" style="background-image:url('https://www.meteorologiaenred.com/wp-content/uploads/2022/01/lago-titicaca.jpg.webp');"></div>
+        <div class="feature-content">
+          <h3>Fishing, Handicrafts & Tourism</h3>
+          <p>Fishing is the communal heartbeat—teams depart at dawn to cast fine‑mesh nets, later dividing the catch equitably. Women specialize in <strong>totora‑reed handicrafts</strong>, crafting boats, mats, and intricate figurines sold to visitors.</p>
+          <p><em>Community‑run tourism</em> now funds education and healthcare, yet elders actively manage visitor flow to protect both cultural integrity and environmental balance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOVERNANCE & DECISION MAKING -->
+    <section id="governance">
+      <h2 class="section-title">Collective Governance</h2>
+      <div class="feature">
+        <div class="feature-img" style="background-image:url('https://nomadicsamuel.com/wp-content/uploads/Lake-Titicaca-Uros-People-Puno-Peru.jpg.webp');"></div>
+        <div class="feature-content">
+          <h3>Consensus on the Floating Plaza</h3>
+          <p>Political life blends tradition with necessity. Island councils—composed of elected representatives and spiritual leaders—meet weekly on a <strong>floating “plaza”</strong> to debate reed‑harvest quotas, visitor guidelines, and schooling timetables.</p>
+          <p>Decisions require consensus, underscoring the community’s commitment to <em>shared survival</em> on the water. Younger members are continually invited to observe and contribute, ensuring leadership continuity across generations.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+  </footer>
+</body>
+</html>
