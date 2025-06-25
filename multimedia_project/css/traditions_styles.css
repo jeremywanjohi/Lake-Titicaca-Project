@@ -1,0 +1,241 @@
+:root {
+  --primary: #0d5387;
+  --accent1: #fe6d73;
+  --accent2: #ffb703;
+  --accent3: #8ecae6;
+  --light: #f5f9fc;
+  --card-bg: #ffffff;
+  --shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top left, #ffffff 30%, #eaf4ff 100%);
+  color: #333;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+
+header {
+  position: relative;
+  background: url('https://bushop.com/wp-content/uploads/sites/6/uros-people-puno.jpg') center/cover no-repeat;
+  min-height: 72vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+}
+nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+nav a.logo {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: opacity 0.25s ease;
+}
+nav ul li a:hover {
+  opacity: 0.8;
+}
+.hero {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 3.2rem 1rem 5rem;
+}
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+.hero p {
+  margin-top: 0.65rem;
+  font-size: 1.15rem;
+  opacity: 0.95;
+}
+
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+
+section {
+  padding: 4.5rem 1.5rem;
+  position: relative;
+}
+
+section + section {
+  margin-top: 2rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--accent1);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.video-section {
+  background: #fcfeff;
+  text-align: center;
+}
+
+.section-text {
+  max-width: 850px;
+  margin: 0 auto 30px;
+  font-size: 1.06rem;
+  color: #444;
+  line-height: 1.85;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.description {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow);
+  background-color: #ffffff;
+}
+
+.description p {
+  margin-bottom: 1.8rem;
+  font-size: 1.08rem;
+  color: #333;
+  text-align: justify;
+  line-height: 1.9;
+}
+
+
+.traditions-gallery {
+  background-color: #eef9ff;
+}
+
+.traditions-gallery h2::after {
+  background: var(--accent1);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: space-between;
+  margin-top: 1rem;
+ text-align: left;
+}
+
+.card {
+  background: linear-gradient(135deg, #ffffff, #f2faff);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  width: 22%;
+  padding: 22px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: var(--primary);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.98rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+
+.image-credit {
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 4px;
+}
+.image-credits {
+  font-size: 0.8em;
+  color: #888;
+}
+
+
+footer {
+  background-color: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 1.2rem 0;
+  font-size: 0.95rem;
+}
+

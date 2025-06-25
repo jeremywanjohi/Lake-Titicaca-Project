@@ -1,8 +1,8 @@
     :root {
       --primary: #0d5387;
-      --accent1: #fe6d73;  /* coral */
-      --accent2: #ffb703;  /* golden */
-      --accent3: #8ecae6;  /* sky */
+      --accent1: #fe6d73;
+      --accent2: #ffb703;
+      --accent3: #8ecae6;
       --light: #f5f9fc;
       --card-bg: #ffffff;
       --shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
@@ -22,7 +22,6 @@
       overflow-x: hidden;
     }
 
-    /* ---------- NAV & HERO ---------- */
     header {
       position: relative;
       background: url('https://www.jacadatravel.com/_next/image/?url=https%3A%2F%2Fcdn.jacadatravel.com%2Fwp-content%2Fuploads%2Fbis-images%2F210833%2Ftiticaca_uros_islands-1600x900-f50_50.jpg&w=3840&q=100') center/cover no-repeat;
@@ -32,12 +31,14 @@
       flex-direction: column;
       justify-content: space-between;
     }
+
     header::before {
       content: "";
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.48);
     }
+
     nav {
       position: relative;
       z-index: 2;
@@ -46,6 +47,7 @@
       align-items: center;
       padding: 1rem 2rem;
     }
+
     nav a.logo {
       color: #fff;
       font-weight: 600;
@@ -53,18 +55,23 @@
       letter-spacing: 0.6px;
       text-decoration: none;
     }
+
     nav ul {
       list-style: none;
       display: flex;
       gap: 1.8rem;
     }
+
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-size: 1rem;
       transition: opacity 0.25s ease;
     }
-    nav ul li a:hover { opacity: 0.8; }
+
+    nav ul li a:hover {
+      opacity: 0.8;
+    }
 
     .hero {
       position: relative;
@@ -72,26 +79,30 @@
       text-align: center;
       padding: 3.2rem 1rem 5rem;
     }
+
     .hero h1 {
       font-size: 3.2rem;
       font-weight: 600;
       line-height: 1.15;
     }
+
     .hero p {
       margin-top: 0.65rem;
       font-size: 1.15rem;
       opacity: 0.95;
     }
 
-    /* ---------- MAIN LAYOUT ---------- */
+
     main {
       max-width: 1150px;
       margin: -4.5rem auto 4rem;
       padding: 0 1.5rem;
     }
+
     section {
       padding: 4.5rem 0;
     }
+
     .section-title {
       font-size: 2.2rem;
       color: var(--primary);
@@ -100,15 +111,16 @@
       text-align: center;
     }
 
-    /* Alternate background hues for breathing space */
+
     section:nth-of-type(odd) {
       background: #fcfeff;
     }
+
     section:nth-of-type(even) {
       background: #eef9ff;
     }
 
-    /* ---------- FEATURE CARD GRID ---------- */
+
     .feature {
       display: flex;
       flex-wrap: wrap;
@@ -121,9 +133,11 @@
       position: relative;
       overflow: hidden;
     }
-    .feature:nth-child(even) { flex-direction: row-reverse; }
 
-    /* accent strip */
+    .feature:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
     .feature::before {
       content: "";
       position: absolute;
@@ -133,10 +147,18 @@
       height: 100%;
       background: var(--accent1);
     }
-    /* use different accent colors for each section */
-    #customs .feature::before { background: var(--accent2); }
-    #economy .feature::before { background: var(--accent3); }
-    #governance .feature::before { background: var(--primary); }
+
+    #customs .feature::before {
+      background: var(--accent2);
+    }
+
+    #economy .feature::before {
+      background: var(--accent3);
+    }
+
+    #governance .feature::before {
+      background: var(--primary);
+    }
 
     .feature-img {
       flex: 1 1 300px;
@@ -146,20 +168,36 @@
       border-radius: 0.7rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     }
+
     .feature-content {
       flex: 1 1 350px;
     }
+
     .feature-content h3 {
       color: var(--primary);
       font-size: 1.65rem;
       margin-bottom: 1rem;
     }
+
     .feature-content p {
       text-align: justify;
       margin-bottom: 0.8rem;
     }
 
-    /* ---------- FOOTER ---------- */
+
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+.image-credit {
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 8px;
+  display: block;
+}
+
+
     footer {
       background: var(--primary);
       color: #fff;
@@ -168,12 +206,23 @@
       font-size: 0.95rem;
     }
 
-    /* ---------- MEDIA QUERIES ---------- */
+
     @media (max-width: 880px) {
-      .feature { padding: 2rem; }
-      .feature-content h3 { font-size: 1.5rem; }
+      .feature {
+        padding: 2rem;
+      }
+
+      .feature-content h3 {
+        font-size: 1.5rem;
+      }
     }
+
     @media (max-width: 640px) {
-      .hero h1 { font-size: 2.45rem; }
-      nav ul { display: none; }
+      .hero h1 {
+        font-size: 2.45rem;
+      }
+
+      nav ul {
+        display: none;
+      }
     }
