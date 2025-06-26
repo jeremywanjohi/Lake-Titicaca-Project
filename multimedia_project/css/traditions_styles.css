@@ -25,19 +25,41 @@ body {
 
 header {
   position: relative;
-  background: url('https://bushop.com/wp-content/uploads/sites/6/uros-people-puno.jpg') center/cover no-repeat;
-  min-height: 72vh;
+  height: 72vh;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  overflow: hidden;
 }
-header::before {
-  content: "";
+
+.hero-bg-video {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.48);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.9;
 }
+
+nav,
+.hero {
+  position: relative;
+  z-index: 1;
+}
+
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.hero p {
+  margin-top: 0.65rem;
+  font-size: 1.15rem;
+  opacity: 0.95;
+}
+
 nav {
   position: relative;
   z-index: 2;
@@ -59,7 +81,7 @@ nav ul {
   gap: 1.8rem;
 }
 nav ul li a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1rem;
   transition: opacity 0.25s ease;
@@ -82,6 +104,13 @@ nav ul li a:hover {
   margin-top: 0.65rem;
   font-size: 1.15rem;
   opacity: 0.95;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* adjust opacity if needed */
+  z-index: 0;
 }
 
 
@@ -237,5 +266,62 @@ footer {
   text-align: center;
   padding: 1.2rem 0;
   font-size: 0.95rem;
+}
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in forwards;
+  opacity: 0;
+}
+
+
+.hero h1,
+.hero p {
+  animation: fadeInUp 1s ease forwards;
+}
+
+section h2 {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.3s; }
+.card:nth-child(3) { animation-delay: 0.5s; }
+.card:nth-child(4) { animation-delay: 0.7s; }
+
+.video-container:hover {
+  transform: scale(1.01);
+  transition: transform 0.3s ease;
 }
 
