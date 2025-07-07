@@ -346,6 +346,8 @@ html.dark .text{border-color:rgba(255,255,255,.05)}
 .section .text {
   position: relative;
   padding-top: 1rem;    /* make room for the stripe */
+  align-self: center;
+
 }
 
 .section .text::before {
@@ -357,6 +359,8 @@ html.dark .text{border-color:rgba(255,255,255,.05)}
   height: 4px;          /* thickness of stripe */
   border-radius: 2px;
   background: var(--clr-accent); /* fallback */
+  display: none !important;
+
 }
 
 /* ─── override stripe color per section ─── */
@@ -366,4 +370,215 @@ html.dark .text{border-color:rgba(255,255,255,.05)}
 .snap-y > .section:nth-child(4) .text::before { background: #50e3c2; }  /* teal */
 .snap-y > .section:nth-child(5) .text::before { background: #9013fe; }  /* purple */
 .snap-y > .section:nth-child(6) .text::before { background: #f06449; }  /* coral */
+
+/* ─── surround the .text panel with a colored border ─── */
+.section .text {
+  border-width: 2px;        /* make the border a bit thicker */
+}
+
+/* section 1 (Extended Family Foundations) */
+.snap-y > .section:nth-child(2) .text {
+  border-style: solid;
+  border-color: #69b826;
+}
+
+/* section 2 (next section) */
+.snap-y > .section:nth-child(3) .text {
+  border-style: solid;
+  border-color: #f5a623;
+}
+
+/* section 3 */
+.snap-y > .section:nth-child(4) .text {
+  border-style: solid;
+  border-color: #50e3c2;
+}
+
+/* section 4 */
+.snap-y > .section:nth-child(5) .text {
+  border-style: solid;
+  border-color: #9013fe;
+}
+
+/* section 5 */
+.snap-y > .section:nth-child(6) .text {
+  border-style: solid;
+  border-color: #f06449;
+}
+
+/* ─── IMMERSIVE VIDEO SECTION ─── */
+.video-section {
+  /* switch off the snap-y padding and grid */
+  padding-top: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* make up for .snap-y’s 4.5rem top-padding */
+  height: calc(100vh - 4.5rem);
+}
+
+
+/* dark overlay to lift text off the video */
+.video-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+/* let the headline & paragraph float above the overlay */
+.video-section .text {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+  background: transparent;       /* remove glass panel */
+  backdrop-filter: none;
+  padding: 0 1rem;
+  margin-bottom: 1.5rem;
+
+}
+
+/* big, crisp video frame */
+.video-section .video-container {
+  position: relative;
+  z-index: 2;
+  width: 80vw;
+  max-width: 1200px;
+  aspect-ratio: 16/9;            /* maintain 16:9 */
+  border-radius: var(--rad-photo);
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0,0,0,.5);
+}
+
+/* ensure the embed fills its container */
+.video-section .video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ─── ADD SPACE BELOW IMMERSIVE VIDEO ─── */
+.video-section {
+  /* keep everything centered but allow extra room underneath */
+  padding-bottom: 2rem;
+}
+
+.video-section .video-container {
+  /* push the iframe up off the very bottom */
+  margin-bottom: 2rem;
+}
+
+/* =========================================================
+   TWIN HEADER STYLES (Social Page → Home Page)
+   ========================================================= */
+
+/*
+ * Restore the header to its default block layout,
+ * removing the absolute positioning used on the social page.
+ * This makes it a standard part of the page flow, like on the homepage.
+ */
+.social-page .site-header {
+  position: relative; /* Override 'position: absolute' */
+  background: var(
+    --clr-bg
+  ) !important; /* Ensure it has a solid background */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/*
+ * In dark mode, the bottom border needs to be lighter
+ * to remain visible against the dark background.
+ */
+html.dark .social-page .site-header {
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+/*
+ * Re-apply the default navigation layout. This centers the
+ * navigation bar and uses 'space-between' to push the
+ * logo to the left and the links to the right.
+ */
+.social-page .site-nav {
+  max-width: 1400px; /* Restore the max-width for the container */
+  margin: 0 auto; /* Center the navigation bar on the page */
+  justify-content: space-between; 
+  padding: 1rem 2rem;         /* identical top/bottom & left/right */
+/* Key for logo-left, links-right layout */
+}
+
+/*
+ * The social page styles hide the logo. This rule
+ * overrides 'display: none' to make it visible again.
+ */
+.social-page .site-nav a.logo {
+  display: block !important; /* Show the logo */
+}
+
+/*
+ * The snap-scroll container had padding to prevent content
+ * from sliding under the absolutely positioned header.
+ * Since the header is no longer absolute, this padding is
+ * removed to prevent a large empty space at the top.
+ */
+.snap-y {
+  padding-top: 0;
+}
+
+/* ──────────────────────────────────────────── */
+/* Force the social‐page header to stay fixed & transparent */
+.social-page .site-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  z-index: 999;
+}
+
+/* Remove any extra snap-scroll padding at the top */
+.snap-y {
+  padding-top: 0 !important;
+}
+
+/* Push the hero down so it peeks below the fixed header */
+.hero {
+  margin-top: 4.5rem;  /* match your header’s height (or tweak as needed) */
+}
+
+/* Make sure the video still fills behind everything */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;   /* one level above your panel-fog overlay but behind header */
+}
+
+/* ————————————————————————————————————
+   NAV: force white text & kill the green underline
+   ———————————————————————————————————— */
+
+/* make all nav links white */
+.social-page .site-nav a,
+.social-page .site-nav ul li a {
+  color: #fff !important;
+}
+
+/* on hover stay white */
+.social-page .site-nav ul li a:hover {
+  opacity: 0.8;    /* or remove this line if you don’t want any hover change */
+  color: #fff !important;
+}
+
+/* remove the “active” green bar */
+.social-page .site-nav ul li a.active::after {
+  display: none !important;
+}
 
