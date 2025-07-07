@@ -176,6 +176,20 @@ section h2::after {
   width: 100%;
   height: 100%;
 }
+.video-credit {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  margin-top: 10px;
+}
+.video-credit a {
+  color: var(--accent1);
+  text-decoration: none;
+}
+.video-credit a:hover {
+  text-decoration: underline;
+}
+
 
 
 .description {
