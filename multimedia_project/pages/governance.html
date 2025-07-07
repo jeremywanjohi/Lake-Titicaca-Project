@@ -6,67 +6,153 @@
   <title>Uros Governance System</title>
   <link rel="stylesheet" href="../css/traditions_styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    .hero-split {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: white;
+      padding: 3rem 2rem;
+    }
+
+    .hero-split img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 1rem;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+      padding: 1rem 2rem;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-top: 0.6rem;
+    }
+
+    .description {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      background: #ffffff;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      border-radius: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .description img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background: #fefefe;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    nav {
+  background-color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul li a {
+  color: #003366; /* Dark blue for contrast */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+  </style>
 </head>
 <body>
-  <header>
-   <img src="../images/image.png" alt="Governance Banner" class="hero-bg-video" />
-    <div class="hero-overlay"></div>
+   <nav>
+  <a href="#" class="logo"></a>
+  <ul>
+    <li><a href="../pages/index.html">Home</a></li>
+    <li><a href="../index.html#social">Social Life</a></li>
+    <li><a href="../pages/traditions.html">Customs and Traditions</a></li>
+    <li><a href="../index.html#economy">Economic Activities</a></li>
+    <li><a href="../pages/governance.html">Governance</a></li>
+  </ul>
+</nav>
 
-    <nav>
-      <a href="#" class="logo"></a>
-      <ul>
-        <li><a href="../pages/index.html">Home</a></li>
-        <li><a href="../pages/social.html">Social Life</a></li>
-        <li><a href="../pages/traditions.html">Customs and Traditions</a></li>
-        <li><a href="../index.html#economy">Economic Activities</a></li>
-        <li><a href="../pages/governance.html">Governance</a></li>
-      </ul>
-    </nav>
-
-    <div class="hero">
+  <!-- HERO SECTION -->
+  <section class="hero-split">
+    <img src="../images/image.png" alt="Uros governance banner" />
+    <div class="hero-text">
       <h1>Uros Governance System</h1>
-      <p class="subtitle">Consensus, tradition, and continuity on the floating islands</p>
+      <p>Consensus, tradition, and continuity on the floating islands</p>
     </div>
-  </header>
+  </section>
+
+  <!-- DESCRIPTION SECTION -->
+ <section class="description">
+  <img src="../images/shared_responsibility.png" alt="Uros governance symbolic image" />
+  <div>
+    <h2>Floating Councils & Consensus</h2>
+    <p>The Uros meet weekly on reed platforms to discuss fishing, tourism, and education. Elders lead, but all voices are valued.</p>
+    <p>Decisions are made by consensus, blending tradition, unity, and youth involvement.</p>
+  </div>
+</section>
 
   <section class="description">
-    <h2>Floating Councils & Consensus</h2>
-    <p>The Uros governance model is built on collective participation. Weekly meetings take place on a shared reed platform where elders, community leaders, and spiritual guides gather to discuss crucial matters like fishing limits, tourism flow, education, and reed harvesting cycles.</p>
-    <p>Decisions are made through consensus, promoting harmony and shared responsibility. Each voice is respected, and youth are invited to participate, ensuring the survival of both tradition and innovation.</p>
-    <p>The structure mirrors both necessity and culture—every element from the platform’s construction to the ceremonial language spoken during decisions ties back to the Uros' deep bond with Lake Titicaca.</p>
-  </section>
-
-  <section class="traditions-gallery">
-    <h2>Governance in Practice</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="../images/council meeting.png" alt="Community leaders in discussion" />
-        <h3>Weekly Councils</h3>
-        <p>Decisions on education, quotas, and trade are made on floating reed platforms.</p>
-        <small class="image-credit">Image source: Planet Odysseys</small>
-      </div>
-      <div class="card">
-        <img src="../images/youth_involvement.png" alt="Uros youth participating in discussions" />
-        <h3>Youth Participation</h3>
-        <p>Young Uros are encouraged to observe and contribute, nurturing future leaders.</p>
-        <small class="image-credit">Image source: Planet Odysseys</small>
-      </div>
-        <div class="card">
-    <img src="../images/shared_responsibility.png" alt="Uros people sharing duties on a floating island" />
-    <h3>Shared Responsibility</h3>
-    <p>All members, regardless of age or role, contribute to governance through active roles and duties.</p>
-    <small class="image-credit">Image source: Nomadic Peru</small>
+  <div>
+    <h2>Weekly Councils</h2>
+    <p>Decisions on education, quotas, and trade are made on floating reed platforms. These sessions involve elders and community representatives in structured discussions.</p>
   </div>
+  <img src="../images/council meeting.png" alt="Community leaders in discussion" />
+</section>
 
-  <div class="card">
-    <img src="../images/decision_ceremony.png" alt="Uros ceremonial governance rituals" />
-    <h3>Decision Ceremonies</h3>
-    <p>Spiritual rituals often accompany important governance decisions to honor ancestors and nature.</p>
-    <small class="image-credit">Image source: Cultural Chronicles</small>
+<section class="description">
+  <img src="../images/youth_involvement.png" alt="Uros youth participating" />
+  <div>
+    <h2>Youth Participation</h2>
+    <p>Young Uros are encouraged to observe and contribute to governance. This nurtures leadership and ensures the continuity of cultural practices among future generations.</p>
   </div>
-    </div>
-  </section>
+</section>
 
+<section class="description">
+  <div>
+    <h2>Shared Responsibility</h2>
+    <p>All community members, from youth to elders, share in leadership duties. This model ensures fairness, balance, and resilience in the floating communities’ decision-making.</p>
+  </div>
+  <img src="../images/shared_responsibility.png" alt="Shared duties" />
+</section>
+
+<section class="description">
+  <img src="../images/decision_ceremony.png" alt="Ceremonial rituals" />
+  <div>
+    <h2>Decision Ceremonies</h2>
+    <p>Important governance decisions are accompanied by spiritual rituals. These honor ancestors and reinforce the Uros' harmony with nature and their traditions.</p>
+  </div>
+</section>
   <footer>
     <p>© 2025 The Floating Communities of Lake Titicaca</p>
   </footer>
