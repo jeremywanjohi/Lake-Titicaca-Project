@@ -44,7 +44,7 @@ html.dark{
 html,body{
   height:100%;overflow:hidden;
   font-family:var(--ff-main);
-  background:var(--clr-bg);
+  background:#eaf7fb;
   color:var(--clr-text);
 }
 body::after{
