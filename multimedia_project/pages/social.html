@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Uros Life — Floating Communities</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Gallery stylesheet -->
+  <link rel="stylesheet" href="../css/social.css" />
+</head>
+<body>
+
+  <!-- ╔══════════ SITE NAVIGATION ══════════╗ -->
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="../pages/index.html" class="logo"></a>
+      <ul class="nav-links">
+        <li><a href="../pages/index.html">Home</a></li>
+        <li><a href="../pages/social.html" class="active">Social Life</a></li>
+        <li><a href="../pages/traditions.html">Customs & Traditions</a></li>
+        <li><a href="../pages/economy.html">Economic Activities</a></li>
+        <li><a href="../pages/governance.html">Governance</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- ╚════════════════════════════════════╝ -->
+
+  <!-- ╔════════ SNAP-SCROLL CONTAINER ═════════╗ -->
+  <div class="snap-y">
+
+    <!-- HERO (video background) -->
+    <section class="hero">
+      <video class="hero-bg" autoplay muted loop playsinline>
+        <source src="../images/UrosSocial.mp4" type="video/mp4">
+      </video>
+      <div class="hero-content">
+        <h1>Social Structure &amp; Roles</h1>
+        <p>Plain‑English guide to how Uros families organise work, leadership and celebration on their floating reed islands.</p>
+      </div>
+      <div class="scroll-down" id="scroll-down">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 10l5 5 5-5Z"/></svg>
+      </div>
+    </section>
+
+    <!-- ─────── SECTION 01 ─────── -->
+    <section class="section" data-bg="../images/uros_family.jpg">
+      <div class="text">
+        <h2>Extended Family Foundations</h2>
+        <p>Each floating island shelters an <strong>ayllu</strong>—a multigenerational family. Twice a month everyone adds fresh totora reeds to the island’s surface while grandparents retell origin stories. The shared labour literally keeps the ground afloat and symbolically ties memory, territory and support into one living platform.</p>
+      </div>
+      <div class="photo"></div>
+    </section>
+
+    <!-- ─────── SECTION 02 ─────── -->
+    <section class="section" data-bg="../images/roles.jpg">
+      <div class="text">
+        <h2>Complementary Daily Roles</h2>
+        <p><strong>Men</strong> leave before dawn to fish with deep‑water nets. <strong>Women</strong> smoke the catch and weave mats, lanterns and household goods from reeds. Both tasks are valued equally; each provides food, light and income, making cooperation—not competition—the island currency.</p>
+      </div>
+      <div class="photo"></div>
+    </section>
+
+    <!-- ─────── SECTION 03 ─────── -->
+    <section class="section" data-bg="../images/community.jpg">
+      <div class="text">
+        <h2>Rotating Leadership</h2>
+        <p>Every week residents elect an <em>apani</em>, a temporary steward who monitors reed reserves, handles the radio for weather and health alerts, and mediates disputes. Because the role rotates, power never settles in one person’s hands—leadership stays as fluid as the lake itself.</p>
+      </div>
+      <div class="photo"></div>
+    </section>
+
+    <!-- ─────── SECTION 04 ─────── -->
+    <section class="section" data-bg="../images/sunset.jpg">
+      <div class="text">
+        <h2>Evening Storytelling</h2>
+        <p>At dusk families unroll shared reed mats and gather by the soft glow of lanterns or solar lamps. Elders recount migration legends, lake‑spirit folktales and weather lore, threading humour and moral lessons through each story. These nightly sessions refresh cultural memory and strengthen the bonds between generations before the next day’s work begins.</p>
+      </div>
+      <div class="photo"></div>
+    </section>
+
+    <!-- ─────── SECTION 05 ─────── -->
+    <section class="section" data-bg="../images/interisland.jpg">
+      <div class="text">
+        <h2>Inter‑Island Councils</h2>
+        <p>Delegates from neighbouring reed communities paddle out to floating council gatherings to coordinate shared fishing zones, organise large‑scale reed replenishment and arrange marriage alliances. Decisions are reached by consensus, weaving a lake‑wide social fabric that keeps harmony and resources in healthy balance.</p>
+      </div>
+      <div class="photo"></div>
+    </section>
+
+  </div><!-- /.snap-y -->
+
+  <!-- DOT NAVIGATION RAIL -->
+  <ul class="rail" id="rail">
+    <li class="active"></li><li></li><li></li><li></li><li></li><li></li>
+  </ul>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    /* 1. Inject each slide's photo into its .photo div */
+    document.querySelectorAll('.section').forEach(sec=>{
+      const src = sec.dataset.bg;
+      if(src) sec.querySelector('.photo').style.backgroundImage = `url('${src}')`;
+    });
+
+    /* 2. IntersectionObserver for reveal + dot highlight */
+    const panels = [...document.querySelectorAll('.hero, .section')];
+    const dots   = [...document.querySelectorAll('.rail li')];
+
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const idx = panels.indexOf(entry.target);
+          dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {threshold:0.6});
+
+    panels.forEach(p=>io.observe(p));
+
+    /* 3. Dot click => smooth scroll */
+    dots.forEach((dot,i)=>{
+      dot.addEventListener('click',()=>panels[i].scrollIntoView({behavior:'smooth'}));
+    });
+
+    /* 4. Hero arrow scrolls to first content slide */
+    document.getElementById('scroll-down').onclick=()=>
+      panels[1].scrollIntoView({behavior:'smooth'});
+  </script>
+
+</body>
+</html>
