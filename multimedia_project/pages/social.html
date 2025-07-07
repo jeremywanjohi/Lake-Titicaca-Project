@@ -8,15 +8,17 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 
-  <!-- Gallery stylesheet -->
+  <!-- Dual-theme stylesheet (light + dark) -->
   <link rel="stylesheet" href="../css/social.css" />
 </head>
-<body>
+<body class="social-page">
+
 
   <!-- ╔══════════ SITE NAVIGATION ══════════╗ -->
   <header class="site-header">
     <nav class="site-nav">
-      <a href="../pages/index.html" class="logo"></a>
+      <a href="../pages/index.html" class="logo">Uros Life</a>
+
       <ul class="nav-links">
         <li><a href="../pages/index.html">Home</a></li>
         <li><a href="../pages/social.html" class="active">Social Life</a></li>
@@ -28,17 +30,29 @@
   </header>
   <!-- ╚════════════════════════════════════╝ -->
 
+  <!-- floating theme switcher -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    <!-- sun icon -->
+    <svg class="sun"  viewBox="0 0 24 24">
+      <path d="M12 4.5V2m0 20v-2.5M21.5 12H22M2 12h2.5m14.1-5.6l1.8-1.8M4.6 19.4l1.8-1.8M6.4 6.4 4.6 4.6m14.8 14.8-1.8-1.8M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/>
+    </svg>
+    <!-- moon icon -->
+    <svg class="moon" viewBox="0 0 24 24">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79Z"/>
+    </svg>
+  </button>
+
   <!-- ╔════════ SNAP-SCROLL CONTAINER ═════════╗ -->
   <div class="snap-y">
 
     <!-- HERO (video background) -->
     <section class="hero">
       <video class="hero-bg" autoplay muted loop playsinline>
-        <source src="../images/UrosSocial.mp4" type="video/mp4">
+        <source src="../images/UrosSocial.mp4" type="video/mp4" />
       </video>
       <div class="hero-content">
         <h1>Social Structure &amp; Roles</h1>
-        <p>Plain‑English guide to how Uros families organise work, leadership and celebration on their floating reed islands.</p>
+        <p>Plain-English guide to how Uros families organise work, leadership and celebration on their floating reed islands.</p>
       </div>
       <div class="scroll-down" id="scroll-down">
         <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 10l5 5 5-5Z"/></svg>
@@ -52,15 +66,21 @@
         <p>Each floating island shelters an <strong>ayllu</strong>—a multigenerational family. Twice a month everyone adds fresh totora reeds to the island’s surface while grandparents retell origin stories. The shared labour literally keeps the ground afloat and symbolically ties memory, territory and support into one living platform.</p>
       </div>
       <div class="photo"></div>
+      <div class="image-credit">
+        Photo by <a href="https://www.pexels.com/photo/peruvian-farmhouse-and-a-standing-woman-13850710/" target="_blank">Miguel Angel Mamani Mamani</a>
+      </div>
     </section>
 
     <!-- ─────── SECTION 02 ─────── -->
     <section class="section" data-bg="../images/roles.jpg">
       <div class="text">
         <h2>Complementary Daily Roles</h2>
-        <p><strong>Men</strong> leave before dawn to fish with deep‑water nets. <strong>Women</strong> smoke the catch and weave mats, lanterns and household goods from reeds. Both tasks are valued equally; each provides food, light and income, making cooperation—not competition—the island currency.</p>
+        <p><strong>Men</strong> leave before dawn to fish with deep-water nets. <strong>Women</strong> smoke the catch and weave mats, lanterns and household goods from reeds. Both tasks are valued equally; each provides food, light and income, making cooperation—not competition—the island currency.</p>
       </div>
       <div class="photo"></div>
+      <div class="image-credit">
+         Photo via <a href="https://www.twowanderingsoles.com/blog/things-to-do-in-peru" target="_blank">Two Wandering Soles</a>
+      </div>
     </section>
 
     <!-- ─────── SECTION 03 ─────── -->
@@ -70,25 +90,36 @@
         <p>Every week residents elect an <em>apani</em>, a temporary steward who monitors reed reserves, handles the radio for weather and health alerts, and mediates disputes. Because the role rotates, power never settles in one person’s hands—leadership stays as fluid as the lake itself.</p>
       </div>
       <div class="photo"></div>
+      <div class="image-credit">
+        Photo by <a href="https://www.pexels.com/photo/two-women-in-traditional-clothing-stand-near-a-hut-27914989/" target="_blank"> Jorge Eduardo Morales Arguello </a>
+      </div>
     </section>
 
     <!-- ─────── SECTION 04 ─────── -->
     <section class="section" data-bg="../images/sunset.jpg">
       <div class="text">
         <h2>Evening Storytelling</h2>
-        <p>At dusk families unroll shared reed mats and gather by the soft glow of lanterns or solar lamps. Elders recount migration legends, lake‑spirit folktales and weather lore, threading humour and moral lessons through each story. These nightly sessions refresh cultural memory and strengthen the bonds between generations before the next day’s work begins.</p>
+        <p>At dusk families unroll shared reed mats and gather by the soft glow of lanterns or solar lamps. Elders recount migration legends, lake-spirit folktales and weather lore, threading humour and moral lessons through each story. These nightly sessions refresh cultural memory and strengthen the bonds between generations before the next day’s work begins.</p>
       </div>
       <div class="photo"></div>
+      <div class="image-credit">
+        Photo by <a href="https://www.pexels.com/photo/body-of-water-2193349/" target="_blank">Joana Vittoria</a>
+      </div>
     </section>
 
     <!-- ─────── SECTION 05 ─────── -->
     <section class="section" data-bg="../images/interisland.jpg">
       <div class="text">
-        <h2>Inter‑Island Councils</h2>
-        <p>Delegates from neighbouring reed communities paddle out to floating council gatherings to coordinate shared fishing zones, organise large‑scale reed replenishment and arrange marriage alliances. Decisions are reached by consensus, weaving a lake‑wide social fabric that keeps harmony and resources in healthy balance.</p>
+        <h2>Inter-Island Councils</h2>
+        <p>Delegates from neighbouring reed communities paddle out to floating council gatherings to coordinate shared fishing zones, organise large-scale reed replenishment and arrange marriage alliances. Decisions are reached by consensus, weaving a lake-wide social fabric that keeps harmony and resources in healthy balance.</p>
       </div>
       <div class="photo"></div>
+      <div class="image-credit">
+        Photo via <a href="https://www.inquirer.com/things-to-do/travel/peru-machu-picchu-titicaca-20200207.html" target="_blank">The Inquirer</a>
+      </div>
     </section>
+
+
 
   </div><!-- /.snap-y -->
 
@@ -99,36 +130,56 @@
 
   <!-- ========== JAVASCRIPT ========== -->
   <script>
-    /* 1. Inject each slide's photo into its .photo div */
-    document.querySelectorAll('.section').forEach(sec=>{
+    /* ============ THEME TOGGLE ============ */
+    const root   = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+
+    // 1. set initial mode → saved > media query > default (light)
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      root.classList.toggle('dark', saved === 'dark');
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      root.classList.add('dark');
+    }
+
+    // 2. switch on click
+    toggle.addEventListener('click', () => {
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    /* ============ GALLERY BEHAVIOUR ============ */
+
+    /* 1. inject each slide's photo into its .photo div */
+    document.querySelectorAll('.section').forEach(sec => {
       const src = sec.dataset.bg;
-      if(src) sec.querySelector('.photo').style.backgroundImage = `url('${src}')`;
+      if (src) sec.querySelector('.photo').style.backgroundImage = `url('${src}')`;
     });
 
     /* 2. IntersectionObserver for reveal + dot highlight */
     const panels = [...document.querySelectorAll('.hero, .section')];
     const dots   = [...document.querySelectorAll('.rail li')];
 
-    const io = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
           const idx = panels.indexOf(entry.target);
-          dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
           entry.target.classList.add('is-visible');
         }
       });
-    }, {threshold:0.6});
+    }, { threshold: 0.6 });
 
-    panels.forEach(p=>io.observe(p));
+    panels.forEach(p => io.observe(p));
 
-    /* 3. Dot click => smooth scroll */
-    dots.forEach((dot,i)=>{
-      dot.addEventListener('click',()=>panels[i].scrollIntoView({behavior:'smooth'}));
+    /* 3. dot click → smooth scroll */
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => panels[i].scrollIntoView({ behavior: 'smooth' }));
     });
 
-    /* 4. Hero arrow scrolls to first content slide */
-    document.getElementById('scroll-down').onclick=()=>
-      panels[1].scrollIntoView({behavior:'smooth'});
+    /* 4. hero arrow scrolls to first content slide */
+    document.getElementById('scroll-down').onclick = () =>
+      panels[1].scrollIntoView({ behavior: 'smooth' });
   </script>
 
 </body>
