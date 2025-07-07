@@ -72,6 +72,12 @@
     nav ul li a:hover {
       opacity: 0.8;
     }
+/* place this after your existing nav styles */
+    nav ul li a {
+      position: relative;                 /* allow the pseudo-element to sit inside */
+    }
+
+
 
     .hero {
       position: relative;

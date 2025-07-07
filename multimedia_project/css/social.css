@@ -1,0 +1,584 @@
+/* =========================================================
+   UROS-ISLAND IMMERSIVE • Gallery v6  – Dual Theme (Light ⇆ Dark)
+   ========================================================= */
+
+/* ---------- RESET ---------- */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+/* ---------- DESIGN TOKENS (LIGHT DEFAULT) ---------- */
+:root{
+  --ff-main:'Poppins',sans-serif;
+
+  /* Radii */
+  --rad-photo:1.2rem;
+  --rad-panel:.9rem;
+
+  /* Palette – light mode */
+  --clr-bg:#ffffff;              /* page background */
+  --clr-text:#121212;            /* body & heading text */
+  --clr-surface:rgba(255,255,255,.88); /* frosted panels */
+  --clr-accent:#69b826;          /* totora‑reed green */
+  --clr-accent-soft:#69b82633;   /* faint glow */
+  --clr-muted:rgba(18,18,18,.65);/* supporting text */
+
+  --clr-rail:#12121299;          /* nav‑rail dots */
+  --clr-rail-active:var(--clr-accent);
+
+  --noise:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQI12NgYGBgAAAABQABDQottAAAAABJRU5ErkJggg==");
+}
+
+/* ---------- DARK‑MODE OVERRIDES ---------- */
+html.dark{
+  --clr-bg:#000000;
+  --clr-text:#fefefe;
+  --clr-surface:rgba(3,13,14,.80);
+  --clr-accent:#b0f574;
+  --clr-accent-soft:#88e35c80;
+  --clr-muted:rgba(255,255,255,.65);
+
+  --clr-rail:#ffffff99;
+  /* active rail keeps same --clr-accent */
+}
+
+/* ---------- GLOBAL LAYOUT ---------- */
+html,body{
+  height:100%;overflow:hidden;
+  font-family:var(--ff-main);
+  background:var(--clr-bg);
+  color:var(--clr-text);
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:100;
+  background:var(--noise) center/4px repeat;
+  mix-blend-mode:multiply;opacity:.05;
+}
+
+/* =========================================================
+   S I T E  H E A D E R
+   ========================================================= */
+.site-header{
+  /* Home‑page style — no fixed positioning, sitting at top of hero */
+  position:relative;
+  width:72vh;
+  z-index:200;
+  /* no blur / glass; transparent so hero media shows through */
+  background:transparent;
+}
+html.dark .site-header{
+  background:rgba(0,0,0,.55);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.site-nav{
+  max-width:1400px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;   /* match home-page nav */
+  align-items:center;
+  padding:1rem 2rem;
+  gap:1rem;
+}
+/* hide logo on social page for a clean centred nav */
+.social-page .logo{display:none;}
+.logo{font-size:1.2rem;font-weight:600;letter-spacing:.5px;color:var(--clr-text);text-decoration:none}
+.nav-links{display:flex;gap:1.6rem;list-style:none}
+.nav-links a{color:var(--clr-text);text-decoration:none;transition:.25s}
+.nav-links a:hover,.nav-links a.active{color:var(--clr-accent)}
+.nav-links a.active::after{content:"";display:block;width:.6rem;height:2px;margin:.25rem auto 0;background:var(--clr-accent);border-radius:1px}
+
+/* ---------- THEME TOGGLE BUTTON ---------- */
+.theme-toggle{
+  position:fixed;
+  bottom:1.25rem;          /* sit at bottom‑right of viewport */
+  right:1.25rem;
+  width:44px;height:44px;
+  display:flex;align-items:center;justif-content:center;
+  border-radius:50%;
+  background:var(--clr-surface);
+  border:2px solid var(--clr-accent);
+  box-shadow:0 2px 6px rgba(0,0,0,.2);
+  cursor:pointer;transition:.3s opacity;
+  z-index:260;
+}
+.theme-toggle:hover{opacity:.85}
+.theme-toggle svg{width:24px;height:24px;fill:var(--clr-accent);pointer-events:none;transition:.25s}
+.theme-toggle .sun{display:block}
+.theme-toggle .moon{display:none}
+html.dark .theme-toggle{background:var(--clr-bg)}
+html.dark .theme-toggle .sun{display:none}
+html.dark .theme-toggle .moon{display:block}
+
+.theme-toggle:hover{transform:scale(1.1)}
+.theme-toggle svg{width:24px;height:24px;fill:var(--clr-accent);pointer-events:none;transition:.25s}
+/* sun vs moon visibility */
+.theme-toggle .sun{display:block}
+.theme-toggle .moon{display:none}
+html.dark .theme-toggle{background:var(--clr-bg)}
+html.dark .theme-toggle .sun{display:none}
+html.dark .theme-toggle .moon{display:block}
+.theme-toggle svg{width:24px;height:24px;fill:var(--clr-accent);pointer-events:none;transition:.25s}
+.theme-toggle:hover{transform:rotate(20deg)}
+/*  sun ≠ moon visibility  */
+.theme-toggle .sun{display:block}
+.theme-toggle .moon{display:none}
+html.dark .theme-toggle .sun{display:none}
+html.dark .theme-toggle .moon{display:block}
+
+/* =========================================================
+   S C R O L L  W R A P P E R
+   ========================================================= */
+.snap-y{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth;padding-top:4.5rem}
+
+/* =========================================================
+   H E R O  (video background)
+   ========================================================= */
+.hero{position:relative;height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;isolation:isolate}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:brightness(.6) saturate(1.15)}
+.hero::after{
+  /* neutral overlay for light mode – no fade to white */
+  content:"";
+  position:absolute;inset:0;z-index:-1;
+}
+
+/* keep subtle fade in dark mode so text remains legible */
+html.dark .hero::after{
+  background:linear-gradient(to bottom,transparent 0%,var(--clr-bg) 85%);
+}
+.hero h1{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:.6rem;animation:ripple 6s ease-in-out infinite}
+.hero p{font-size:1.15rem;opacity:.9}
+@keyframes ripple{0%,100%{text-shadow:0 0 8px var(--clr-accent-soft),0 0 18px transparent}50%{text-shadow:0 0 10px var(--clr-accent),0 0 25px var(--clr-accent-soft)}}
+.scroll-down{position:absolute;bottom:2.1rem;left:50%;transform:translateX(-50%);cursor:pointer;animation:bounce 2s infinite}
+.scroll-down svg{width:34px;height:34px;fill:var(--clr-accent)}
+@keyframes bounce{0%,20%,50%,80%,100%{transform:translate(-50%,0)}40%{transform:translate(-50%,-9px)}60%{transform:translate(-50%,-5px)} }
+
+/* =========================================================
+   C O N T E N T  S E C T I O N S
+   ========================================================= */
+.section{position:relative;height:100vh;scroll-snap-align:start;display:flex;align-items:center;gap:5vw;padding:0 6vw;opacity:0;transform:translateY(50px) scale(.92);isolation:isolate}
+.section.is-visible{animation:reveal .9s cubic-bezier(.18,.84,.44,1) forwards}
+@keyframes reveal{to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* ---- PHOTO ---- */
+.photo{flex:0 0 55%;height:80vh;max-width:780px;background-size:cover;background-position:center bottom;background-repeat:no-repeat;border-radius:var(--rad-photo);box-shadow:0 14px 35px rgba(0,0,0,.2);opacity:0;transform:translateY(50px) scale(.92);transition:transform .9s cubic-bezier(.18,.84,.44,1),opacity .9s cubic-bezier(.18,.84,.44,1)}
+.section.is-visible .photo{opacity:1;transform:translateY(0) scale(1);animation:photoGlow 6s ease-in-out infinite}
+
+/* ---- TEXT PANEL ---- */
+.text{flex:1;max-width:560px;display:flex;flex-direction:column;gap:1.1rem;background:var(--clr-surface);backdrop-filter:blur(14px);padding:2.2rem 2.5rem;border-radius:var(--rad-panel);border:1px solid rgba(0,0,0,.08);color:var(--clr-text)}
+html.dark .text{border-color:rgba(255,255,255,.05)}
+.text h2{font-size:clamp(1.8rem,3.2vw,2.4rem)}
+.text p{line-height:1.75;font-size:1.05rem;letter-spacing:.4px;color:var(--clr-muted)}
+
+/* ---- PHOTO GLOW & DOT PULSE ---- */
+@keyframes photoGlow{0%{box-shadow:0 14px 35px rgba(0,0,0,.2),0 0 0 0 var(--clr-accent-soft)}50%{box-shadow:0 14px 35px rgba(0,0,0,.2),0 0 14px 4px var(--clr-accent-soft)}100%{box-shadow:0 14px 35px rgba(0,0,0,.2),0 0 0 0 var(--clr-accent-soft)}}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 8px var(--clr-accent)}50%{box-shadow:0 0 16px var(--clr-accent)}}
+
+/* =========================================================
+   D O T  N A V  R A I L
+   ========================================================= */
+.rail{position:fixed;top:50%;right:2rem;transform:translateY(-50%);display:flex;flex-direction:column;gap:1rem;z-index:200}
+.rail li{width:9px;height:9px;border-radius:50%;cursor:pointer;list-style:none;background:var(--clr-rail);transition:.25s}
+.rail li.active{background:var(--clr-rail-active);transform:scale(1.15);animation:dotPulse 2.8s ease-in-out infinite}
+
+/* =========================================================
+   R E S P O N S I V E
+   ========================================================= */
+@media(max-width:900px){.photo{height:70vh}}
+@media(max-width:700px){.section{flex-direction:column;padding:0 4vw}.photo{width:92vw;height:60vh}.text{max-width:unset;width:92vw;margin-top:1.2rem;padding:1.6rem 1.6rem}.rail{right:1rem}.site-nav{padding:0 1.2rem}}
+
+
+/* ================= SOCIAL PAGE HEADER OVERRIDE ================= */
+/* This block ensures the nav on social.html matches the home page. */
+.social-page .site-header{position:absolute;top:0;left:0;width:100%;background:transparent!important;border:none;box-shadow:none;z-index:200}
+.social-page .site-header::before{display:none!important}
+
+.social-page .site-nav{
+  /* push entire nav block to the far right */
+  margin-left:auto;          /* override centering */
+  margin-right:0;
+  max-width:none;            /* let it hug content */
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  padding:1rem 2rem;
+  gap:1.8rem;
+}
+
+.social-page .site-nav a.logo{display:none}
+
+
+/* hide brand on this page (optional) */
+.social-page .site-nav a.logo{display:none}
+
+
+.social-page .site-nav a.logo{color:#fff;font-weight:600;font-size:1.1rem;letter-spacing:.6px;text-decoration:none}
+
+.social-page .site-nav ul{list-style:none;display:flex;gap:1.8rem}
+.social-page .site-nav ul li a{
+  color:var(--clr-text);
+  text-decoration:none;
+  font-size:1rem;
+  transition:opacity .25s ease, color .25s ease;
+}
+.social-page .site-nav ul li a:hover{opacity:.8}
+
+/* active state underline stays accent */
+.social-page .site-nav ul li a.active{position:relative;color:var(--clr-text);}
+.social-page .site-nav ul li a.active::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-.35rem;width:.6rem;height:2px;border-radius:1px;background:var(--clr-accent)}
+
+.social-page .site-nav ul li a:hover{opacity:.8}
+
+.social-page .site-nav ul li a.active{position:relative}
+.social-page .site-nav ul li a.active::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-.35rem;width:.6rem;height:2px;border-radius:1px;background:var(--clr-accent)}
+
+
+/* =============== SOCIAL PAGE NAV MATCHES HOME =============== */
+.social-page nav{
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 2rem;
+  margin-left:auto;   /* push to right edge */
+  margin-right:0;
+  max-width:650px;    /* compact width similar to home screenshot */
+}
+
+.social-page nav a.logo{color:var(--clr-text);font-weight:600;font-size:1.1rem;letter-spacing:.6px;text-decoration:none}
+
+.social-page nav ul{list-style:none;display:flex;gap:1.8rem}
+
+.social-page nav ul li a{color:var(--clr-text);text-decoration:none;font-size:1rem;transition:opacity .25s ease,color .25s ease}
+.social-page nav ul li a:hover{opacity:.8}
+
+.social-page nav ul li a.active{position:relative}
+.social-page nav ul li a.active::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;width:22px;height:3px;border-radius:2px;background: #69b826;}
+
+/* ─── override flex to grid for proper caption placement ─── */
+.section {
+  display: grid;
+  grid-template-columns: 1fr 55%;
+  grid-template-rows: auto auto;    /* both rows size to content */
+  gap: 1.5rem 5vw;                  /* a bit more vertical space */
+  height: 100vh;                    /* keep full-viewport section */
+  align-content: center;            /* center the two-row grid vertically */
+  align-items: start;               /* content tops of each row */
+}
+
+
+/* keep your reveal animation */
+.section.is-visible { /* existing rule */ }
+
+/* text spans both rows in column one */
+.section .text {
+  grid-column: 1;
+  grid-row:    1 / span 2;
+}
+
+.section .image-credit {
+  grid-column: 2;
+  grid-row:    2;    /* caption in the bottom row */
+  justify-self: center;
+  margin-top: 0.5rem;   /* tweak this value as you like */
+
+}
+
+/* photo sits top-right */
+.section .photo {
+  grid-column: 2;
+  grid-row:    1;
+}
+
+/* caption sits bottom-right */
+.section .image-credit {
+  grid-column: 2;
+  grid-row:    2;
+  /* remove any flex-based sizing */
+  flex: none;
+  margin: 0;         /* grid gap already gives space */
+  font-size: 0.85rem;
+  color: var(--clr-muted);
+}
+.section .image-credit a {
+  color: var(--clr-accent);
+  text-decoration: none;
+}
+.section .image-credit a:hover {
+  text-decoration: underline;
+}
+
+/* center both rows (text+photo and caption) inside the 100vh */
+.section {
+  /* with display: grid already set above */
+  align-content: center;    /* vertical centering of the grid as a whole */
+}
+
+/* if you want the caption text to sit directly under the photo (instead of spanning the full column) */
+.section .image-credit {
+  justify-self: center;     /* center the caption in its grid cell */
+}
+
+/* stronger, multi-layer glow on the photo */
+.section .photo {
+  /* keep your base shadow + add a subtle glow */
+  box-shadow:
+    0 14px 35px rgba(0,0,0,.2),
+    0 0 8px var(--clr-accent); 
+  /* re-use the existing animation name */
+  animation: photoGlow 6s ease-in-out infinite;
+}
+
+/* intensify the glow spread and make it very visible */
+@keyframes photoGlow {
+  0%, 100% {
+    box-shadow:
+      0 14px 35px rgba(0,0,0,.2),
+      0 0 6px var(--clr-accent),
+      0 0 24px var(--clr-accent-soft);
+  }
+  50% {
+    box-shadow:
+      0 14px 35px rgba(0,0,0,.2),
+      0 0 16px var(--clr-accent),
+      0 0 48px var(--clr-accent-soft);
+  }
+}
+/* ─── base for horizontal stripe above each .text ─── */
+.section .text {
+  position: relative;
+  padding-top: 1rem;    /* make room for the stripe */
+  align-self: center;
+
+}
+
+.section .text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;          /* length of stripe */
+  height: 4px;          /* thickness of stripe */
+  border-radius: 2px;
+  background: var(--clr-accent); /* fallback */
+  display: none !important;
+
+}
+
+/* ─── override stripe color per section ─── */
+/* (the first child of .snap-y is the hero, so your 5 content sections start at nth-child(2)) */
+.snap-y > .section:nth-child(2) .text::before { background: #69b826; }  /* green */
+.snap-y > .section:nth-child(3) .text::before { background: #f5a623; }  /* yellow */
+.snap-y > .section:nth-child(4) .text::before { background: #50e3c2; }  /* teal */
+.snap-y > .section:nth-child(5) .text::before { background: #9013fe; }  /* purple */
+.snap-y > .section:nth-child(6) .text::before { background: #f06449; }  /* coral */
+
+/* ─── surround the .text panel with a colored border ─── */
+.section .text {
+  border-width: 2px;        /* make the border a bit thicker */
+}
+
+/* section 1 (Extended Family Foundations) */
+.snap-y > .section:nth-child(2) .text {
+  border-style: solid;
+  border-color: #69b826;
+}
+
+/* section 2 (next section) */
+.snap-y > .section:nth-child(3) .text {
+  border-style: solid;
+  border-color: #f5a623;
+}
+
+/* section 3 */
+.snap-y > .section:nth-child(4) .text {
+  border-style: solid;
+  border-color: #50e3c2;
+}
+
+/* section 4 */
+.snap-y > .section:nth-child(5) .text {
+  border-style: solid;
+  border-color: #9013fe;
+}
+
+/* section 5 */
+.snap-y > .section:nth-child(6) .text {
+  border-style: solid;
+  border-color: #f06449;
+}
+
+/* ─── IMMERSIVE VIDEO SECTION ─── */
+.video-section {
+  /* switch off the snap-y padding and grid */
+  padding-top: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* make up for .snap-y’s 4.5rem top-padding */
+  height: calc(100vh - 4.5rem);
+}
+
+
+/* dark overlay to lift text off the video */
+.video-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+/* let the headline & paragraph float above the overlay */
+.video-section .text {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+  background: transparent;       /* remove glass panel */
+  backdrop-filter: none;
+  padding: 0 1rem;
+  margin-bottom: 1.5rem;
+
+}
+
+/* big, crisp video frame */
+.video-section .video-container {
+  position: relative;
+  z-index: 2;
+  width: 80vw;
+  max-width: 1200px;
+  aspect-ratio: 16/9;            /* maintain 16:9 */
+  border-radius: var(--rad-photo);
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0,0,0,.5);
+}
+
+/* ensure the embed fills its container */
+.video-section .video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ─── ADD SPACE BELOW IMMERSIVE VIDEO ─── */
+.video-section {
+  /* keep everything centered but allow extra room underneath */
+  padding-bottom: 2rem;
+}
+
+.video-section .video-container {
+  /* push the iframe up off the very bottom */
+  margin-bottom: 2rem;
+}
+
+/* =========================================================
+   TWIN HEADER STYLES (Social Page → Home Page)
+   ========================================================= */
+
+/*
+ * Restore the header to its default block layout,
+ * removing the absolute positioning used on the social page.
+ * This makes it a standard part of the page flow, like on the homepage.
+ */
+.social-page .site-header {
+  position: relative; /* Override 'position: absolute' */
+  background: var(
+    --clr-bg
+  ) !important; /* Ensure it has a solid background */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/*
+ * In dark mode, the bottom border needs to be lighter
+ * to remain visible against the dark background.
+ */
+html.dark .social-page .site-header {
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+/*
+ * Re-apply the default navigation layout. This centers the
+ * navigation bar and uses 'space-between' to push the
+ * logo to the left and the links to the right.
+ */
+.social-page .site-nav {
+  max-width: 1400px; /* Restore the max-width for the container */
+  margin: 0 auto; /* Center the navigation bar on the page */
+  justify-content: space-between; 
+  padding: 1rem 2rem;         /* identical top/bottom & left/right */
+/* Key for logo-left, links-right layout */
+}
+
+/*
+ * The social page styles hide the logo. This rule
+ * overrides 'display: none' to make it visible again.
+ */
+.social-page .site-nav a.logo {
+  display: block !important; /* Show the logo */
+}
+
+/*
+ * The snap-scroll container had padding to prevent content
+ * from sliding under the absolutely positioned header.
+ * Since the header is no longer absolute, this padding is
+ * removed to prevent a large empty space at the top.
+ */
+.snap-y {
+  padding-top: 0;
+}
+
+/* ──────────────────────────────────────────── */
+/* Force the social‐page header to stay fixed & transparent */
+.social-page .site-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  z-index: 999;
+}
+
+/* Remove any extra snap-scroll padding at the top */
+.snap-y {
+  padding-top: 0 !important;
+}
+
+/* Push the hero down so it peeks below the fixed header */
+.hero {
+  margin-top: 4.5rem;  /* match your header’s height (or tweak as needed) */
+}
+
+/* Make sure the video still fills behind everything */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;   /* one level above your panel-fog overlay but behind header */
+}
+
+/* ————————————————————————————————————
+   NAV: force white text & kill the green underline
+   ———————————————————————————————————— */
+
+/* make all nav links white */
+.social-page .site-nav a,
+.social-page .site-nav ul li a {
+  color: #fff !important;
+}
+
+/* on hover stay white */
+.social-page .site-nav ul li a:hover {
+  opacity: 0.8;    /* or remove this line if you don’t want any hover change */
+  color: #fff !important;
+}
+
+/* remove the “active” green bar */
+.social-page .site-nav ul li a.active::after {
+  display: none !important;
+}
+
