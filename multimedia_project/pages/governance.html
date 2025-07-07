@@ -7,35 +7,109 @@
   <link rel="stylesheet" href="../css/traditions_styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    .hero-split {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      background: var(--primary);
-      color: white;
-      padding: 3rem 2rem;
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    .hero-split img {
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+   nav {
+background-color: transparent;
+  position: absolute; /* make it overlay the video */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+       color: white;
+  text-decoration: none;
+  font-weight: 600;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
       width: 100%;
-      max-width: 500px;
-      border-radius: 1rem;
+      height: 90vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }
 
     .hero-text {
-      flex: 1;
-      min-width: 280px;
-      padding: 1rem 2rem;
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 1rem;
+      max-width: 90%;
     }
 
     .hero-text h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
 
     .hero-text p {
+      font-size: 1.25rem;
+    }
+
+    .fun-fact {
+      background: #0077b6;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
       font-size: 1.1rem;
-      margin-top: 0.6rem;
+      animation: slideUp 1s ease-in-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .description {
@@ -48,84 +122,108 @@
       max-width: 1200px;
       margin: 2rem auto;
       border-radius: 1.2rem;
-      box-shadow: var(--shadow);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .description:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
     }
 
     .description img {
       width: 100%;
       border-radius: 12px;
-      box-shadow: var(--shadow);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-      padding: 2rem;
-    }
-
-    .card {
-      background: #fefefe;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
       transition: transform 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .card:hover {
-      transform: translateY(-5px);
+    .description img:hover {
+      transform: scale(1.03);
     }
-    nav {
-  background-color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-nav ul li a {
-  color: #003366; /* Dark blue for contrast */
-  text-decoration: none;
-  font-weight: 600;
-}
 
+    .image-credit {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      background: #f0f0f0;
+      padding: 1rem;
+      font-size: 0.95rem;
+      color: #444;
+    }
   </style>
 </head>
 <body>
-   <nav>
-    <a href="#" class="logo"></a>
-    <ul>
-     <li><a href="../pages/index.html">Home</a></li>
-    <li><a href="../pages/social.html"">Social Life</a></li>
+<!-- Background Water Sound with Toggle -->
+<audio id="background-audio" autoplay loop muted>
+  <source src="../images/soundswater.mp3" type="audio/mp3" />
+  Your browser does not support the audio element.
+</audio>
+<button onclick="toggleAudio()" style="position: fixed; top: 1rem; right: 1rem; z-index: 999; padding: 0.5rem 1rem; background: #003366; color: white; border: none; border-radius: 0.5rem; font-weight: bold; cursor: pointer;">
+  🔇
+</button>
+
+<script>
+  function toggleAudio() {
+    const audio = document.getElementById("background-audio");
+    const btn = event.currentTarget;
+    audio.muted = !audio.muted;
+    btn.textContent = audio.muted ? "🔇" : "🔊";
+    audio.play().catch(() => {}); // ensures playback starts if blocked initially
+  }
+</script>
+
+<nav>
+  <a href="#" class="logo"></a>
+  <ul>
+    <li><a href="../pages/index.html">Home</a></li>
+    <li><a href="../index.html#social">Social Life</a></li>
     <li><a href="../pages/traditions.html">Customs and Traditions</a></li>
     <li><a href="../pages/economic.html">Economic Activities</a></li>
     <li><a href="../pages/governance.html">Governance</a></li>
     </ul>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero-split">
-    <img src="../images/image.png" alt="Uros governance banner" />
-    <div class="hero-text">
-      <h1>Uros Governance System</h1>
-      <p>Consensus, tradition, and continuity on the floating islands</p>
-    </div>
-  </section>
-
-  <!-- DESCRIPTION SECTION -->
- <section class="description">
-  <img src="../images/shared_responsibility.png" alt="Uros governance symbolic image" />
-  <div>
-    <h2>Floating Councils & Consensus</h2>
-    <p>The Uros meet on reed platforms to discuss fishing, tourism, and education. Elders lead, but all voices are valued.</p>
-    <p>Decisions are made by consensus, blending tradition, unity, and youth involvement.</p>
+<!-- HERO VIDEO BACKGROUND -->
+<section class="hero">
+  <video autoplay loop muted playsinline>
+    <source src="../images/uros_video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-text">
+    <h1>Uros Governance System</h1>
+    <p>Consensus, tradition, and continuity on the floating islands</p>
   </div>
 </section>
 
-  <section class="description">
+
+<!-- FUN FACT -->
+<div class="fun-fact">
+  🌟 Fun Uros Fact: Some leaders are chosen by <strong>floating consensus</strong>—if your platform floats longer, your idea stands stronger!
+</div>
+
+<!-- CONTENT SECTIONS -->
+<section class="description">
+  <img src="../images/shared_responsibility.png" alt="Uros governance symbolic image" />
+  <div>
+    <h2>Floating Councils & Consensus</h2>
+    <p>The Uros meet weekly on reed platforms to discuss fishing, tourism, and education. Elders lead, but all voices are valued.</p>
+    <p>Decisions are made by consensus, blending tradition, and unity.</p>
+    <small class="image-credit">Image source: Planet Odysseys</small>
+  </div>
+</section>
+
+<section class="description">
   <div>
     <h2>Weekly Councils</h2>
     <p>Decisions on education, quotas, and trade are made on floating reed platforms. These sessions involve elders and community representatives in structured discussions.</p>
+    <small class="image-credit">Image source: Andean Community Archives</small>
   </div>
   <img src="../images/council meeting.png" alt="Community leaders in discussion" />
 </section>
@@ -135,6 +233,7 @@ nav ul li a {
   <div>
     <h2>Youth Participation</h2>
     <p>Young Uros are encouraged to observe and contribute to governance. This nurtures leadership and ensures the continuity of cultural practices among future generations.</p>
+    <small class="image-credit">Image source: Planet Odysseys</small>
   </div>
 </section>
 
@@ -142,6 +241,7 @@ nav ul li a {
   <div>
     <h2>Shared Responsibility</h2>
     <p>All community members, from youth to elders, share in leadership duties. This model ensures fairness, balance, and resilience in the floating communities’ decision-making.</p>
+    <small class="image-credit">Image source: Cultural Survival</small>
   </div>
   <img src="../images/shared_responsibility.png" alt="Shared duties" />
 </section>
@@ -151,8 +251,13 @@ nav ul li a {
   <div>
     <h2>Decision Ceremonies</h2>
     <p>Important governance decisions are accompanied by spiritual rituals. These honor ancestors and reinforce the Uros' harmony with nature and their traditions.</p>
+    <small class="image-credit">Image source: Peru Explorer</small>
   </div>
 </section>
- 
+
+<footer>
+  <p>© 2025 The Floating Communities of Lake Titicaca</p>
+</footer>
+
 </body>
 </html>
