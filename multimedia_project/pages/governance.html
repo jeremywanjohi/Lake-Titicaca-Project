@@ -76,23 +76,40 @@
     .card:hover {
       transform: translateY(-5px);
     }
-    nav {
-  background-color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-nav ul li a {
-  color: #003366; /* Dark blue for contrast */
-  text-decoration: none;
-  font-weight: 600;
-}
 
+    nav {
+      background-color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: #003366;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .image-credit {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
   </style>
 </head>
 <body>
-   <nav>
+
+<nav>
   <a href="#" class="logo"></a>
   <ul>
     <li><a href="../pages/index.html">Home</a></li>
@@ -103,58 +120,68 @@ nav ul li a {
   </ul>
 </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero-split">
-    <img src="../images/image.png" alt="Uros governance banner" />
-    <div class="hero-text">
-      <h1>Uros Governance System</h1>
-      <p>Consensus, tradition, and continuity on the floating islands</p>
-    </div>
-  </section>
+<!-- HERO SECTION -->
+<section class="hero-split">
+  <img src="../images/image.png" alt="Uros governance banner" />
+  <div class="hero-text">
+    <h1>Uros Governance System</h1>
+    <p>Consensus, tradition, and continuity on the floating islands</p>
+  </div>
+</section>
 
-  <!-- DESCRIPTION SECTION -->
- <section class="description">
+<!-- SECTION 1 -->
+<section class="description">
   <img src="../images/shared_responsibility.png" alt="Uros governance symbolic image" />
   <div>
     <h2>Floating Councils & Consensus</h2>
     <p>The Uros meet weekly on reed platforms to discuss fishing, tourism, and education. Elders lead, but all voices are valued.</p>
     <p>Decisions are made by consensus, blending tradition, unity, and youth involvement.</p>
+    <small class="image-credit">Image source: Planet Odysseys</small>
   </div>
 </section>
 
-  <section class="description">
+<!-- SECTION 2 -->
+<section class="description">
   <div>
     <h2>Weekly Councils</h2>
     <p>Decisions on education, quotas, and trade are made on floating reed platforms. These sessions involve elders and community representatives in structured discussions.</p>
+    <small class="image-credit">Image source: Andean Community Archives</small>
   </div>
   <img src="../images/council meeting.png" alt="Community leaders in discussion" />
 </section>
 
+<!-- SECTION 3 -->
 <section class="description">
   <img src="../images/youth_involvement.png" alt="Uros youth participating" />
   <div>
     <h2>Youth Participation</h2>
     <p>Young Uros are encouraged to observe and contribute to governance. This nurtures leadership and ensures the continuity of cultural practices among future generations.</p>
+    <small class="image-credit">Image source: Planet Odysseys</small>
   </div>
 </section>
 
+<!-- SECTION 4 -->
 <section class="description">
   <div>
     <h2>Shared Responsibility</h2>
     <p>All community members, from youth to elders, share in leadership duties. This model ensures fairness, balance, and resilience in the floating communities’ decision-making.</p>
+    <small class="image-credit">Image source: Cultural Survival</small>
   </div>
   <img src="../images/shared_responsibility.png" alt="Shared duties" />
 </section>
 
+<!-- SECTION 5 -->
 <section class="description">
   <img src="../images/decision_ceremony.png" alt="Ceremonial rituals" />
   <div>
     <h2>Decision Ceremonies</h2>
     <p>Important governance decisions are accompanied by spiritual rituals. These honor ancestors and reinforce the Uros' harmony with nature and their traditions.</p>
+    <small class="image-credit">Image source: Peru Explorer</small>
   </div>
 </section>
-  <footer>
-    <p>© 2025 The Floating Communities of Lake Titicaca</p>
-  </footer>
+<footer>
+  <p>© 2025 The Floating Communities of Lake Titicaca</p>
+</footer>
+
 </body>
 </html>
