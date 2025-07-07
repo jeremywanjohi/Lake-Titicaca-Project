@@ -1,201 +1,187 @@
-    :root {
-      --primary: #0d5387;
-      --accent1: #fe6d73;
-      --accent2: #ffb703;
-      --accent3: #8ecae6;
-      --light: #f5f9fc;
-      --card-bg: #ffffff;
-      --shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-    }
+:root {
+  --primary: #0d5387;
+  --accent1: #fe6d73;
+  --accent2: #ffb703;
+  --accent3: #8ecae6; /* Light blue */
+  --light-bg: var(--accent3); /* Use accent3 as light background */
+  --card-bg: #ffffff;
+  --shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-    body {
-      background: radial-gradient(circle at top left, #ffffff 30%, #eaf4ff 100%);
-      color: #333;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+body {
+   background: #eaf7fb;
+  color: #333;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
 
-    header {
-      position: relative;
-      background: url('https://www.jacadatravel.com/_next/image/?url=https%3A%2F%2Fcdn.jacadatravel.com%2Fwp-content%2Fuploads%2Fbis-images%2F210833%2Ftiticaca_uros_islands-1600x900-f50_50.jpg&w=3840&q=100') center/cover no-repeat;
-      min-height: 72vh;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+header {
+  position: relative;
+  background: url('https://www.jacadatravel.com/_next/image/?url=https%3A%2F%2Fcdn.jacadatravel.com%2Fwp-content%2Fuploads%2Fbis-images%2F210833%2Ftiticaca_uros_islands-1600x900-f50_50.jpg&w=3840&q=100') center/cover no-repeat;
+  min-height: 72vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.48);
-    }
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+}
 
-    nav {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-    }
+nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
 
-    nav a.logo {
-      color: #fff;
-      font-weight: 600;
-      font-size: 1.1rem;
-      letter-spacing: 0.6px;
-      text-decoration: none;
-    }
+nav a.logo {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.8rem;
-    }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+}
 
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: opacity 0.25s ease;
-    }
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: opacity 0.25s ease;
+}
 
-    nav ul li a:hover {
-      opacity: 0.8;
-    }
-/* place this after your existing nav styles */
-    nav ul li a {
-      position: relative;                 /* allow the pseudo-element to sit inside */
-    }
+nav ul li a:hover {
+  opacity: 0.8;
+}
 
+.hero {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 3.2rem 1rem 5rem;
+}
 
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
 
-    .hero {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: 3.2rem 1rem 5rem;
-    }
+.hero p {
+  margin-top: 0.65rem;
+  font-size: 1.15rem;
+  opacity: 0.95;
+}
 
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 600;
-      line-height: 1.15;
-    }
+main {
+  max-width: 1150px;
+  margin: -4.5rem auto 4rem;
+  padding: 0 1.5rem;
+}
 
-    .hero p {
-      margin-top: 0.65rem;
-      font-size: 1.15rem;
-      opacity: 0.95;
-    }
+section {
+  padding: 4.5rem 0;
+}
 
+/* Removed alternating backgrounds for cleaner look */
+section:nth-of-type(odd),
+section:nth-of-type(even) {
+  background: transparent;
+}
 
-    main {
-      max-width: 1150px;
-      margin: -4.5rem auto 4rem;
-      padding: 0 1.5rem;
-    }
+.section-title {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+}
 
-    section {
-      padding: 4.5rem 0;
-    }
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: var(--accent1);
+  display: block;
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
 
-    .section-title {
-      font-size: 2.2rem;
-      color: var(--primary);
-      margin-bottom: 1.8rem;
-      font-weight: 600;
-      text-align: center;
-    }
+.feature {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.8rem;
+  align-items: center;
+  background: var(--card-bg);
+  border-radius: 0.85rem;
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  border-left: 6px solid var(--accent1); /* Default accent bar */
+}
 
+#customs .feature {
+  border-left-color: var(--accent2);
+}
 
-    section:nth-of-type(odd) {
-      background: #fcfeff;
-    }
+#economy .feature {
+  border-left-color: var(--accent3);
+}
 
-    section:nth-of-type(even) {
-      background: #eef9ff;
-    }
+#governance .feature {
+  border-left-color: var(--primary);
+}
 
+.feature-img {
+  flex: 1 1 300px;
+  min-height: 240px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.7rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
 
-    .feature {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.8rem;
-      align-items: center;
-      background: var(--card-bg);
-      border-radius: 0.85rem;
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
+.feature-content {
+  flex: 1 1 350px;
+}
 
-    .feature:nth-child(even) {
-      flex-direction: row-reverse;
-    }
+.feature-content h3 {
+  color: var(--primary);
+  font-size: 1.65rem;
+  margin-bottom: 1rem;
+}
 
-    .feature::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 6px;
-      height: 100%;
-      background: var(--accent1);
-    }
+.feature-content p {
+  text-align: justify;
+  margin-bottom: 0.8rem;
+}
 
-    #customs .feature::before {
-      background: var(--accent2);
-    }
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 
-    #economy .feature::before {
-      background: var(--accent3);
-    }
-
-    #governance .feature::before {
-      background: var(--primary);
-    }
-
-    .feature-img {
-      flex: 1 1 300px;
-      min-height: 240px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 0.7rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    }
-
-    .feature-content {
-      flex: 1 1 350px;
-    }
-
-    .feature-content h3 {
-      color: var(--primary);
-      font-size: 1.65rem;
-      margin-bottom: 1rem;
-    }
-
-    .feature-content p {
-      text-align: justify;
-      margin-bottom: 0.8rem;
-    }
-
-
-    .card-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
 .image-credit {
   font-size: 0.8em;
   color: #666;
@@ -203,32 +189,30 @@
   display: block;
 }
 
+footer {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 0;
+  font-size: 0.95rem;
+}
 
-    footer {
-      background: var(--primary);
-      color: #fff;
-      text-align: center;
-      padding: 1.2rem 0;
-      font-size: 0.95rem;
-    }
+@media (max-width: 880px) {
+  .feature {
+    padding: 2rem;
+  }
 
+  .feature-content h3 {
+    font-size: 1.5rem;
+  }
+}
 
-    @media (max-width: 880px) {
-      .feature {
-        padding: 2rem;
-      }
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 2.45rem;
+  }
 
-      .feature-content h3 {
-        font-size: 1.5rem;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero h1 {
-        font-size: 2.45rem;
-      }
-
-      nav ul {
-        display: none;
-      }
-    }
+  nav ul {
+    display: none;
+  }
+}
