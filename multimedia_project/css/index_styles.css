@@ -77,17 +77,7 @@
       position: relative;                 /* allow the pseudo-element to sit inside */
     }
 
-    nav ul li a.active::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -6px;                       /* adjust distance from text */
-      width: 22px;                        /* label length */
-      height: 3px;                        /* label thickness */
-      background: #69b826;                /* reed-green accent */
-      border-radius: 2px;
-    }
+
 
     .hero {
       position: relative;

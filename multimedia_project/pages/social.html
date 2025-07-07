@@ -13,12 +13,13 @@
 </head>
 <body class="social-page">
 
-
   <!-- ╔══════════ SITE NAVIGATION ══════════╗ -->
   <header class="site-header">
-    <nav class="site-nav">
-      <a href="../pages/index.html" class="logo">Uros Life</a>
+    <!-- BACKGROUND MUSIC -->
+    <audio id="bg-music" src="../images/panflute.mp3" loop autoplay></audio>
 
+    <nav class="site-nav">
+      <a href="../pages/index.html" class="logo"></a>
       <ul class="nav-links">
         <li><a href="../pages/index.html">Home</a></li>
         <li><a href="../pages/social.html" class="active">Social Life</a></li>
@@ -30,17 +31,12 @@
   </header>
   <!-- ╚════════════════════════════════════╝ -->
 
-  <!-- floating theme switcher -->
+  <!-- Floating controls -->
   <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-    <!-- sun icon -->
-    <svg class="sun"  viewBox="0 0 24 24">
-      <path d="M12 4.5V2m0 20v-2.5M21.5 12H22M2 12h2.5m14.1-5.6l1.8-1.8M4.6 19.4l1.8-1.8M6.4 6.4 4.6 4.6m14.8 14.8-1.8-1.8M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/>
-    </svg>
-    <!-- moon icon -->
-    <svg class="moon" viewBox="0 0 24 24">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79Z"/>
-    </svg>
+    <svg class="sun"  viewBox="0 0 24 24"><path d="M12 4.5V2m0 20v-2.5M21.5 12H22M2 12h2.5m14.1-5.6l1.8-1.8M4.6 19.4l1.8-1.8M6.4 6.4 4.6 4.6m14.8 14.8-1.8-1.8M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/></svg>
+    <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79Z"/></svg>
   </button>
+  <button id="mute-toggle" class="theme-toggle" style="bottom:5rem; right:1.25rem;" aria-label="Toggle music">🔊</button>
 
   <!-- ╔════════ SNAP-SCROLL CONTAINER ═════════╗ -->
   <div class="snap-y">
@@ -52,14 +48,14 @@
       </video>
       <div class="hero-content">
         <h1>Social Structure &amp; Roles</h1>
-        <p>Plain-English guide to how Uros families organise work, leadership and celebration on their floating reed islands.</p>
+        <p>Guide to how Uros families organise work, leadership and celebration on their floating reed islands.</p>
       </div>
       <div class="scroll-down" id="scroll-down">
         <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 10l5 5 5-5Z"/></svg>
       </div>
     </section>
 
-    <!-- ─────── SECTION 01 ─────── -->
+    <!-- SECTION 01 -->
     <section class="section" data-bg="../images/uros_family.jpg">
       <div class="text">
         <h2>Extended Family Foundations</h2>
@@ -71,7 +67,7 @@
       </div>
     </section>
 
-    <!-- ─────── SECTION 02 ─────── -->
+    <!-- SECTION 02 -->
     <section class="section" data-bg="../images/roles.jpg">
       <div class="text">
         <h2>Complementary Daily Roles</h2>
@@ -79,11 +75,11 @@
       </div>
       <div class="photo"></div>
       <div class="image-credit">
-         Photo via <a href="https://www.twowanderingsoles.com/blog/things-to-do-in-peru" target="_blank">Two Wandering Soles</a>
+        Photo via <a href="https://www.twowanderingsoles.com/blog/things-to-do-in-peru" target="_blank">Two Wandering Soles</a>
       </div>
     </section>
 
-    <!-- ─────── SECTION 03 ─────── -->
+    <!-- SECTION 03 -->
     <section class="section" data-bg="../images/community.jpg">
       <div class="text">
         <h2>Rotating Leadership</h2>
@@ -91,11 +87,11 @@
       </div>
       <div class="photo"></div>
       <div class="image-credit">
-        Photo by <a href="https://www.pexels.com/photo/two-women-in-traditional-clothing-stand-near-a-hut-27914989/" target="_blank"> Jorge Eduardo Morales Arguello </a>
+        Photo by <a href="https://www.pexels.com/photo/two-women-in-traditional-clothing-stand-near-a-hut-27914989/" target="_blank">Jorge Eduardo Morales Arguello</a>
       </div>
     </section>
 
-    <!-- ─────── SECTION 04 ─────── -->
+    <!-- SECTION 04 -->
     <section class="section" data-bg="../images/sunset.jpg">
       <div class="text">
         <h2>Evening Storytelling</h2>
@@ -107,7 +103,7 @@
       </div>
     </section>
 
-    <!-- ─────── SECTION 05 ─────── -->
+    <!-- SECTION 05 -->
     <section class="section" data-bg="../images/interisland.jpg">
       <div class="text">
         <h2>Inter-Island Councils</h2>
@@ -119,44 +115,59 @@
       </div>
     </section>
 
-
+    <!-- NEW VIDEO SECTION: Kara & Nate’s Visit -->
+     <section class="section video-section">
+      <div class="text">
+        <h2>Inside Uros Social Life</h2>
+      </div>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/U3_Jqd6lXyo"
+          title="Immersive Uros Life Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
 
   </div><!-- /.snap-y -->
 
   <!-- DOT NAVIGATION RAIL -->
   <ul class="rail" id="rail">
-    <li class="active"></li><li></li><li></li><li></li><li></li><li></li>
+    <li class="active"></li><li></li><li></li><li></li><li></li><li></li><li></li>
   </ul>
 
   <!-- ========== JAVASCRIPT ========== -->
   <script>
-    /* ============ THEME TOGGLE ============ */
+    // THEME TOGGLE
     const root   = document.documentElement;
     const toggle = document.getElementById('theme-toggle');
-
-    // 1. set initial mode → saved > media query > default (light)
-    const saved = localStorage.getItem('theme');
+    const saved  = localStorage.getItem('theme');
     if (saved) {
       root.classList.toggle('dark', saved === 'dark');
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       root.classList.add('dark');
     }
-
-    // 2. switch on click
     toggle.addEventListener('click', () => {
       const isDark = root.classList.toggle('dark');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
-    /* ============ GALLERY BEHAVIOUR ============ */
+    // BACKGROUND MUSIC & MUTE TOGGLE
+    const music   = document.getElementById('bg-music');
+    const muteBtn = document.getElementById('mute-toggle');
+    muteBtn.addEventListener('click', () => {
+      music.muted = !music.muted;
+      muteBtn.textContent = music.muted ? '🔈' : '🔊';
+    });
 
-    /* 1. inject each slide's photo into its .photo div */
+    // SNAP-SCROLL BEHAVIOUR
     document.querySelectorAll('.section').forEach(sec => {
       const src = sec.dataset.bg;
       if (src) sec.querySelector('.photo').style.backgroundImage = `url('${src}')`;
     });
 
-    /* 2. IntersectionObserver for reveal + dot highlight */
     const panels = [...document.querySelectorAll('.hero, .section')];
     const dots   = [...document.querySelectorAll('.rail li')];
 
@@ -171,15 +182,22 @@
     }, { threshold: 0.6 });
 
     panels.forEach(p => io.observe(p));
-
-    /* 3. dot click → smooth scroll */
     dots.forEach((dot, i) => {
       dot.addEventListener('click', () => panels[i].scrollIntoView({ behavior: 'smooth' }));
     });
-
-    /* 4. hero arrow scrolls to first content slide */
     document.getElementById('scroll-down').onclick = () =>
       panels[1].scrollIntoView({ behavior: 'smooth' });
+
+    const header = document.querySelector('.site-header');
+    const hero = document.querySelector('.hero');
+    const headerObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        header.style.transition = 'opacity 0.3s ease';
+        header.style.opacity = entry.isIntersecting ? '1' : '0';
+      });
+    }, { threshold: 0.1 });
+    headerObserver.observe(hero);
+  </script>
   </script>
 
 </body>
