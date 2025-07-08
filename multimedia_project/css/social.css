@@ -10,22 +10,24 @@
   --ff-main:'Poppins',sans-serif;
 
   /* Radii */
-  --rad-photo:1.2rem;
-  --rad-panel:.9rem;
+  --rad-photo : 1.2rem;
+  --rad-panel : .9rem;
 
-  /* Palette – light mode */
-  --clr-bg:#ffffff;              /* page background */
-  --clr-text:#121212;            /* body & heading text */
-  --clr-surface:rgba(255,255,255,.88); /* frosted panels */
-  --clr-accent:#69b826;          /* totora‑reed green */
-  --clr-accent-soft:#69b82633;   /* faint glow */
-  --clr-muted:rgba(18,18,18,.65);/* supporting text */
+  /* Palette  — LIGHT MODE */
+  --clr-bg      : #eaf7fb;           /* ← restore blue-wash */
+  --clr-bg-rgb  : 234,247,251;       /*  ↳ matching RGB triplet */
+  --clr-text    : #121212;
+  --clr-surface : rgba(255,255,255,.88);
+  --clr-accent  : #69b826;
+  --clr-accent-soft : #69b82633;
+  --clr-muted   : rgba(18,18,18,.65);
 
-  --clr-rail:#12121299;          /* nav‑rail dots */
-  --clr-rail-active:var(--clr-accent);
+  --clr-rail    : #12121299;
+  --clr-rail-active : var(--clr-accent);
 
   --noise:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQI12NgYGBgAAAABQABDQottAAAAABJRU5ErkJggg==");
 }
+
 
 /* ---------- DARK‑MODE OVERRIDES ---------- */
 html.dark{
@@ -42,10 +44,12 @@ html.dark{
 
 /* ---------- GLOBAL LAYOUT ---------- */
 html,body{
-  height:100%;overflow:hidden;
+  height:100%;
+  overflow:hidden;
   font-family:var(--ff-main);
-  background:#eaf7fb;
+  background:var(--clr-bg);        /* switches with theme */
   color:var(--clr-text);
+  transition:background .35s;      /* smooth flip */
 }
 body::after{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:100;
@@ -126,7 +130,14 @@ html.dark .theme-toggle .moon{display:block}
 /* =========================================================
    S C R O L L  W R A P P E R
    ========================================================= */
-.snap-y{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth;padding-top:4.5rem}
+.snap-y{
+  height:100vh;
+  overflow-y:auto;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+  padding-top:4.5rem;              /* keep your offset */
+  background:var(--clr-bg);        /* NEW */
+}
 
 /* =========================================================
    H E R O  (video background)

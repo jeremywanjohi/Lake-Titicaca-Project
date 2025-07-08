@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- traditions.html -->
 
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uros Traditions & Celebrations</title>
   <link rel="stylesheet" href="../css/traditions_styles.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
-
 </head>
-
 <body>
-
   <header>
     <video autoplay loop muted playsinline class="hero-bg-video">
       <source src="../images/women_dancing_animation.mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay"></div>
     <nav>
-      <a href="#" class="logo"></a>
+      <a href="#" class="logo">Uros Traditions</a>
       <ul>
-        <li><a href="../pages/index.html">Home </a></li>
-        <li><a href="../pages/social.html">Social Life </a></li>
-        <li><a href="../pages/traditions.html">Customs and Traditions </a></li>
+        <li><a href="../pages/index.html">Home</a></li>
+        <li><a href="../pages/social.html">Social Life</a></li>
+        <li><a href="../pages/traditions.html">Customs and Traditions</a></li>
         <li><a href="../pages/economic.html">Economic Activities</a></li>
         <li><a href="../pages/governance.html">Governance</a></li>
       </ul>
@@ -37,32 +33,35 @@
     </div>
   </header>
 
+
   <section class="video-section">
     <h2>Watch: Celebrating the Uros Way</h2>
     <p class="section-text">
-      Traditions in the Uros community are rich with color, music, and symbolism. This video captures the essence of
-      their ceremonial gatherings, from marriage rituals to dance festivals.
+      Traditions in the Uros community are rich with color, music, and symbolism. This video captures
+      the essence of their ceremonial gatherings, from marriage rituals to dance festivals.
     </p>
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/KzRednGWuX0" title="Uros Celebrations" frameborder="0"
-        allowfullscreen></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/KzRednGWuX0"
+        title="Uros Celebrations"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
     </div>
-    <p class="video-credit">
-      Video source: YouTube - Celebrating the Uros Way
-    </p>
-
   </section>
+
 
   <section class="description">
     <h2>Rituals and Celebrations</h2>
-    <p>The Uros people of Lake Titicaca have a unique cultural heritage shaped by their floating lifestyle. Their
-      traditions are deeply rooted in nature, especially the totora reeds that form the basis of their islands, homes,
-      and boats.</p>
-    <p>Celebrations include vibrant festivals marked by music, dancing and colorful clothing. Traditional dress reflects
-      both community identity and respect for ancestors.</p>
-    <p>Each ceremony serves a purpose such as welcoming visitors, celebrating marriages or blessing the lake while
-      passing values like unity and sustainability to younger generations.</p>
+    <p>The Uros people of Lake Titicaca have a unique cultural heritage shaped by their floating lifestyle.
+       Their traditions are deeply rooted in nature, especially the totora reeds that form the basis of their islands,
+       homes, and boats.</p>
+    <p>Celebrations include vibrant festivals marked by music, dancing and colorful clothing.
+       Traditional dress reflects both community identity and respect for ancestors.</p>
+    <p>Each ceremony serves a purpose such as welcoming visitors, celebrating marriages or blessing the lake
+       while passing values like unity and sustainability to younger generations.</p>
   </section>
+
 
   <section class="traditions-gallery">
     <h2>Traditional Highlights</h2>
@@ -94,7 +93,25 @@
     </div>
   </section>
 
-  
-</body>
 
+  <footer>
+    <p>© 2025 The Floating Communities of Lake Titicaca</p>
+  </footer>
+
+
+  <!-- Dark mode toggle -->
+  <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+
+
+  <script>
+    const toggle = document.getElementById('dark-mode-toggle');
+    toggle.addEventListener('click', () => {
+      const htmlEl = document.documentElement;
+      const current = htmlEl.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      htmlEl.setAttribute('data-theme', next);
+      toggle.textContent = next === 'light' ? '🌙' : '☀️';
+    });
+  </script>
+</body>
 </html>
