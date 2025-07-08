@@ -1,5 +1,3 @@
-/* traditions_styles.css */
-
 :root {
   --primary: #0d5387;
   --accent1: #fe6d73;
@@ -15,6 +13,7 @@
   --section-bg: #fcfeff;        /* light-mode section bg */
   --gallery-bg: #eef9ff;        /* light-mode gallery bg */
 }
+
 
 /* Dark mode overrides */
 [data-theme="dark"] {
@@ -33,6 +32,7 @@
   --gallery-bg: #222222;        /* dark-mode gallery bg */
 }
 
+
 /* Global resets */
 * {
   margin: 0;
@@ -40,6 +40,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
 
 body {
   background: radial-gradient(
@@ -52,6 +53,7 @@ body {
   overflow-x: hidden;
   transition: background 0.3s ease, color 0.3s ease;
 }
+
 
 /* Dark-mode toggle button */
 #dark-mode-toggle {
@@ -73,6 +75,7 @@ body {
 #dark-mode-toggle:hover {
   transform: scale(1.1);
 }
+
 
 /* Header & hero */
 header {
@@ -148,6 +151,7 @@ nav ul li a:hover {
   color: #fff;
 }
 
+
 /* Sections */
 section {
   padding: 4.5rem 1.5rem;
@@ -176,6 +180,7 @@ section h2::after {
   margin: 10px auto 0;
   border-radius: 2px;
 }
+
 
 /* Video section */
 .video-section {
@@ -208,6 +213,7 @@ section h2::after {
   transition: transform 0.3s ease;
 }
 
+
 /* Description */
 .description {
   max-width: 1000px;
@@ -225,6 +231,7 @@ section h2::after {
   text-align: justify;
   line-height: 1.9;
 }
+
 
 /* Traditions gallery */
 .traditions-gallery {
@@ -281,6 +288,7 @@ section h2::after {
   line-height: 1.6;
 }
 
+
 /* Image credits */
 .image-credit {
   font-size: 0.8em;
@@ -292,6 +300,7 @@ section h2::after {
   color: #888;
 }
 
+
 /* Footer */
 footer {
   background-color: var(--primary);
@@ -300,6 +309,7 @@ footer {
   padding: 1.2rem 0;
   font-size: 0.95rem;
 }
+
 
 /* Animations */
 @keyframes fadeInUp {
@@ -325,9 +335,11 @@ footer {
   opacity: 0;
 }
 
+
 /*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
   Dark-mode text overrides
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
 
 /* define a muted-text variable */
 :root {
@@ -337,6 +349,7 @@ footer {
   --text-muted: #999;        /* dark mode muted */
 }
 
+
 /* override all paragraph-type text to use the theme’s text color */
 .section-text,
 .description p,
@@ -344,9 +357,11 @@ footer {
   color: var(--text-color) !important;
 }
 
+
 /* image credits, “small” text stays muted */
 .image-credit,
 .image-credits {
   color: var(--text-muted) !important;
 }
+
 
