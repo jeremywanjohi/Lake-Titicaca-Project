@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" >
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Floating Communities of Lake Titicaca</title>
+  <script>
+  // Apply saved theme before CSS loads to avoid flash
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }
+</script>
+
 
   <!-- Traditions navbar & link styles -->
   <link rel="stylesheet" href="../css/traditions_styles.css" />
@@ -11,10 +20,7 @@
   <!-- Your index page styles -->
   <link rel="stylesheet" href="../css/index_styles.css" />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
 
 <body>
@@ -37,16 +43,27 @@
       <p>Immersive insights into the daily life and resilience of the Uros people</p>
     </div>
   </header>
+  <!-- INTRODUCTION TO THE UROS PEOPLE -->
+  <section class="intro-uros">
+    <div class="intro-content">
+      <p>
+        The <strong>Uros people</strong> are an indigenous group who have lived for generations on floating islands made
+        of totora reeds on <strong>Lake Titicaca</strong>, near the city of <strong>Puno in southern Peru</strong>.
+        These man-made islands were originally created as a refuge from rival tribes, and today, the Uros continue to
+        preserve their unique way of life through fishing, reed craftsmanship, and community-based tourism.
+      </p>
+    </div>
+  </section>
+
 
   <!-- MAIN CONTENT -->
   <main>
     <!-- SOCIAL LIFE -->
     <section id="social" class="sticky-container">
       <div class="sticky-element">
-        <div
-          class="feature-img"
-          style="background-image:url('https://www.annees-de-pelerinage.com/wp-content/uploads/2015/08/uros-people-singing-farewell-song-lake-titicaca-1024x680.jpg');"
-        ></div>
+        <div class="feature-img"
+          style="background-image:url('https://www.annees-de-pelerinage.com/wp-content/uploads/2015/08/uros-people-singing-farewell-song-lake-titicaca-1024x680.jpg');">
+        </div>
         <div class="feature-text-wrapper">
           <div class="feature-text">
             <h2 class="section-title">Community & Family</h2>
@@ -68,10 +85,9 @@
     <!-- CUSTOMS & TRADITIONS -->
     <section id="customs" class="sticky-container">
       <div class="sticky-element">
-        <div
-          class="feature-img"
-          style="background-image:url('https://images.squarespace-cdn.com/content/v1/55ca0e9fe4b0e3531a269135/1586401564803-CFW21O7MPX3N33S8YNE1/Women+dancing+in+a+circle%2C+Lake+Titicaca?format=1500w');"
-        ></div>
+        <div class="feature-img"
+          style="background-image:url('https://images.squarespace-cdn.com/content/v1/55ca0e9fe4b0e3531a269135/1586401564803-CFW21O7MPX3N33S8YNE1/Women+dancing+in+a+circle%2C+Lake+Titicaca?format=1500w');">
+        </div>
         <div class="feature-text-wrapper">
           <div class="feature-text">
             <h2 class="section-title">Customs & Celebrations</h2>
@@ -92,10 +108,9 @@
     <!-- ECONOMY -->
     <section id="economy" class="sticky-container">
       <div class="sticky-element">
-        <div
-          class="feature-img"
-          style="background-image:url('https://www.meteorologiaenred.com/wp-content/uploads/2022/01/lago-titicaca.jpg.webp');"
-        ></div>
+        <div class="feature-img"
+          style="background-image:url('https://www.meteorologiaenred.com/wp-content/uploads/2022/01/lago-titicaca.jpg.webp');">
+        </div>
         <div class="feature-text-wrapper">
           <div class="feature-text">
             <h2 class="section-title">Livelihoods on Water</h2>
@@ -117,10 +132,9 @@
     <!-- GOVERNANCE -->
     <section id="governance" class="sticky-container">
       <div class="sticky-element">
-        <div
-          class="feature-img"
-          style="background-image:url('https://nomadicsamuel.com/wp-content/uploads/Lake-Titicaca-Uros-People-Puno-Peru.jpg.webp');"
-        ></div>
+        <div class="feature-img"
+          style="background-image:url('https://nomadicsamuel.com/wp-content/uploads/Lake-Titicaca-Uros-People-Puno-Peru.jpg.webp');">
+        </div>
         <div class="feature-text-wrapper">
           <div class="feature-text">
             <h2 class="section-title">Collective Governance</h2>
@@ -174,4 +188,5 @@
     });
   </script>
 </body>
+
 </html>

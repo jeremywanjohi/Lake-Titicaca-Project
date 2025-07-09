@@ -2,11 +2,19 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uros Traditions & Celebrations</title>
+  <script>
+  // Apply saved theme before CSS loads to avoid flash
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }
+</script>
+
   <link rel="stylesheet" href="../css/traditions_styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -37,7 +45,7 @@
   <section class="video-section">
     <h2>Watch: Celebrating the Uros Way</h2>
     <p class="section-text">
-      Traditions in the Uros community are rich with color, music, and symbolism. This video captures
+      Traditions in the Uros community are rich with color, music and symbolism. This video captures
       the essence of their ceremonial gatherings, from marriage rituals to dance festivals.
     </p>
     <div class="video-container">
