@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Uros Life — Floating Communities</title>
+<script>
+  // Apply saved theme before CSS loads to avoid flash
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }
+</script>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
@@ -32,10 +39,12 @@
   <!-- ╚════════════════════════════════════╝ -->
 
   <!-- Floating controls -->
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-    <svg class="sun"  viewBox="0 0 24 24"><path d="M12 4.5V2m0 20v-2.5M21.5 12H22M2 12h2.5m14.1-5.6l1.8-1.8M4.6 19.4l1.8-1.8M6.4 6.4 4.6 4.6m14.8 14.8-1.8-1.8M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/></svg>
-    <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79Z"/></svg>
-  </button>
+  
+ <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+  <span class="sun">☀️</span>
+  <span class="moon">🌙</span>
+</button>
+
   <button id="mute-toggle" class="theme-toggle" style="bottom:5rem; right:1.25rem;" aria-label="Toggle music">🔊</button>
 
   <!-- ╔════════ SNAP-SCROLL CONTAINER ═════════╗ -->

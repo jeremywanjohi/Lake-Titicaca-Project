@@ -62,6 +62,22 @@ html[data-theme="dark"] footer {
   background: var(--dark-primary);
   color: var(--dark-bg);
 }
+.intro-uros {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 2rem 3rem;
+  text-align: justify;
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  margin: 2rem auto;
+  max-width: 900px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+html[data-theme="dark"] .intro-uros {
+  background: var(--dark-card-bg);
+  color: var(--dark-text);
+}
 
 /* Navigation Bar (Transparent Glass) */
 nav {
@@ -254,33 +270,29 @@ footer {
 }
 
 .dark-mode-toggle {
-  background: var(--accent3);
-  color: var(--primary);
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  z-index: 1000;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+   position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      padding: .6rem .9rem;
+      border: none;
+      border-radius: .6rem;
+      background: #003366;
+      color: #fff;
+      font-size: 1.25rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: transform .2s ease;
 }
 
 .dark-mode-toggle:hover {
   transform: translateY(-3px) scale(1.1);
 }
 
-html[data-theme="dark"] .dark-mode-toggle {
+/* html[data-theme="dark"] .dark-mode-toggle {
   background: var(--dark-primary);
   color: var(--dark-bg);
-}
+} */
 
 /* RESPONSIVE */
 @media (max-width: 920px) {
