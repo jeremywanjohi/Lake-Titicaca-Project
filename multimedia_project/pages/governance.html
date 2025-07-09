@@ -227,6 +227,19 @@ html[data-theme="dark"] nav a {
     themeBtn.textContent = next === 'dark' ? '☀️' : '🌙';
   });
 </script>
+<script>
+  const audioBtn = document.getElementById('audio-toggle');
+  const audio = document.getElementById('background-audio');
+
+  // Set icon based on mute state on load
+  audioBtn.textContent = audio.muted ? '🔇' : '🔊';
+
+  audioBtn.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    audioBtn.textContent = audio.muted ? '🔇' : '🔊';
+  });
+</script>
+
 
 </body>
 </html>
